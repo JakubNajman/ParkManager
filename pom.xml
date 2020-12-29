@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>bdbt_park_rozrywki</groupId>
+	<artifactId>ParkManager</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Parent details -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-parent</artifactId>
+		<version>2.4.0</version>
+	</parent>
+
+	<!-- Java 8/11 -->
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+	<!-- Dependencies details -->
+	<dependencies>
+		<!-- spring-boot-starter-jdbc -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<!-- spring-boot-starter-web (MVC with embeded Tomcat Server) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- spring-boot-starter-thymeleaf (live view template) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!-- Oracle JDBC driver (for Java 11 it's ojdbc10) -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>1.0</version>
+			<systemPath>C:/Users/najma/.m2/repository/ojdbc/ojdbc10.jar</systemPath>
+			<scope>system</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- All plugins. -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+</project>
