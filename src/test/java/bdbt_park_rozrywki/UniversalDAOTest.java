@@ -36,7 +36,7 @@ class UniversalDAOTest {
 
 	@Test
 	void testSave() {
-		Adresy adresy1 = new Adresy(16, "test", "test", "test", 1);
+		Adresy adresy1 = new Adresy(44, "test", "test", "test", 1);
 
 		uDAO.save(adresy1);
 	}

@@ -24,6 +24,7 @@ public class UniversalDAO {
 
 	private static final String QUERY_BEG = "SELECT * FROM";
 	private static final String QUERY_INSERT = "INSERT INTO";
+	private static final String QUERY_VALUES = " VALUES ";
 
 	/* Konstruktor. */
 	@SuppressWarnings("static-access")
@@ -69,7 +70,7 @@ public class UniversalDAO {
 			queryColumns = new StringBuilder(queryColumns).append(par[i] + " ").toString().toUpperCase();
 		}
 		queryColumns = new StringBuilder(queryColumns).append(")").toString();
-		String queryValues = " VALUES ";
+		String queryValues = QUERY_VALUES;
 		for (int i = 1; i < par.length; i += 2) {
 			if (i == 1)
 				queryValues = new StringBuilder(queryValues).append("(").toString();
