@@ -1,8 +1,5 @@
 package bdbt_park_rozrywki.adresy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Adresy {
 
 	private int nr_adresu;
@@ -26,16 +23,6 @@ public class Adresy {
 	}
 
 	/* Getery i setery */
-
-	public List<String> getProperties() {
-		List<String> properties = new ArrayList<>();
-		properties.add(getNr_adresu().toString());
-		properties.add(getMiasto().toString());
-		properties.add(getUlica().toString());
-		properties.add(getNr_lokalu().toString());
-		properties.add(getKod_pocztowy().toString());
-		return properties;
-	}
 
 	public Integer getNr_adresu() {
 		return nr_adresu;

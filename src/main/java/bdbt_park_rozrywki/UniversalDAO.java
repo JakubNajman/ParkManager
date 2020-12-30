@@ -23,8 +23,12 @@ public class UniversalDAO {
 	private static Object entity;
 
 	private static final String QUERY_BEG = "SELECT * FROM";
-	private static final String QUERY_INSERT = "INSERT INTO";
+	private static final String QUERY_INSERT = "INSERT INTO ";
 	private static final String QUERY_VALUES = " VALUES ";
+	private static final String QUERY_DELETE = "DELETE FROM ";
+	private static final String QUERY_UPDATE = "UPDATE ";
+	private static final String QUERY_SET = " SET ";
+	private static final String QUERY_WHERE = " WHERE ";
 
 	/* Konstruktor. */
 	@SuppressWarnings("static-access")
@@ -63,7 +67,7 @@ public class UniversalDAO {
 	public void save(Object entity) {
 		String[] par = propertiesToArray(entity);
 
-		String queryColumns = QUERY_INSERT + " " + entity.getClass().getSimpleName().toUpperCase() + " ";
+		String queryColumns = QUERY_INSERT + entity.getClass().getSimpleName().toUpperCase() + " ";
 		for (int i = 0; i < par.length; i += 2) {
 			if (i == 0)
 				queryColumns = new StringBuilder(queryColumns).append("(").toString();
@@ -94,13 +98,52 @@ public class UniversalDAO {
 	}
 
 	/* (U)pdate */
-	public void update(Object object) {
+	public void update(String fieldConditionName, String fieldCondtitonValue, String... fieldNameAndFieldValues) {
+		if (fieldNameAndFieldValues.length % 2 == 0)
+			try {
+				String query = QUERY_UPDATE;
+				query = new StringBuilder(query).append(entity.getClass().getSimpleName().toUpperCase())
+						.append(QUERY_SET).toString();
+				for (int i = 0; i < fieldNameAndFieldValues.length; i++) {
+					if (i % 2 == 0) {
+						query = new StringBuilder(query).append(fieldNameAndFieldValues[i] + " = ").toString();
+					} else if (i == fieldNameAndFieldValues.length - 1) {
+						query = new StringBuilder(query).append("'" + fieldNameAndFieldValues[i] + "'").toString();
+					} else if (i % 2 == 1 && i != fieldNameAndFieldValues.length - 1)
+						query = new StringBuilder(query).append("'" + fieldNameAndFieldValues[i] + "', ").toString();
+				}
+				query = new StringBuilder(query).append(QUERY_WHERE)
+						.append(fieldConditionName + " = '" + fieldCondtitonValue + "'").toString();
+				try {
+					jdbcTemplate.execute(query);
+				} catch (Exception e) {
+					System.out.println("Coś poszło nie tak. Wiadomość od JDBC: \n");
+					System.out.println(e.getMessage());
+				}
 
+			} catch (Exception e) {
+				System.out.println("Coś poszło nie tak. \n");
+				System.out.println(e.getMessage());
+			}
+		else
+			System.out.println("Żadne dane nie zostały podane lub podałeś nieparzystą ilość danych.\n "
+					+ "Przeczytaj jeszcze raz dokumentację.");
 	}
 
 	/* (D)elete */
 	public void deleteByField(String fieldName, String fieldValue) {
-
+		if (!fieldValue.isEmpty() && !fieldName.isEmpty())
+			try {
+				String query = QUERY_DELETE;
+				query = new StringBuilder(query).append(entity.getClass().getSimpleName().toUpperCase())
+						.append(QUERY_WHERE).append(fieldName + " = '" + fieldValue + "'").toString();
+				jdbcTemplate.execute(query);
+			} catch (Exception e) {
+				System.out.println("Coś poszło nie tak. Wiadomość JDBC:");
+				System.out.println(e.getMessage());
+			}
+		else
+			System.out.println("Żadne dane nie zostały podane .\n " + "Przeczytaj jeszcze raz dokumentację.");
 	}
 
 }
