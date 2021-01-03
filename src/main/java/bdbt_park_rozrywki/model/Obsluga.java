@@ -43,4 +43,19 @@ public class Obsluga {
 	public void setSpecjalnyDostęp(BigDecimal specjalnyDostęp) {
 		this.specjalnyDostęp = specjalnyDostęp;
 	}
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("numer_pracownika,/'" + getNumerPracownika().toString() + "',/")
+				.append("sekcja_obslugi,/'" + getSekcjaObslugi().toString() + "',/")
+				.append("specjalny_dostep,/'" + getSpecjalnyDostęp().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "OBSLUGA";
+	}
+
 }

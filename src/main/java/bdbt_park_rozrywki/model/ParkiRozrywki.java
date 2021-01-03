@@ -70,4 +70,21 @@ public class ParkiRozrywki {
 	public void setNrAdresu(BigDecimal nrAdresu) {
 		this.nrAdresu = nrAdresu;
 	}
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("data_zalozenia,/'" + getDataZałożenia().toString() + "',/")
+				.append("liczba_pracownikow,/'" + getLiczbaPracownikow().toString() + "',/")
+				.append("nazwa_parku,/'" + getNazwaParku().toString() + "',/")
+				.append("nr_adresu,/'" + getNrAdresu().toString() + "',/")
+				.append("numer_parku,/'" + getNumerParku().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "PARKI_ROZRYWKI";
+	}
+
 }

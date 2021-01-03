@@ -92,4 +92,23 @@ public class Atrakcje {
 	public void setNrCennika(BigDecimal nrCennika) {
 		this.nrCennika = nrCennika;
 	}
+	
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "',/")
+				.append("data_konserwacji,/'" + getDataKonserwacji().toString() + "',/")
+				.append("godzina_otwarcia,/'" + getGodzinaOtwarcia().toString() + "',/")
+				.append("godzina_zamknięcia,/'" + getGodzinaOtwarcia().toString() + "',/")
+				.append("numer_parku/'" + getNumerParku().toString() + "',/")
+				.append("nr_cennika/'" + getNrCennika().toString() + "'").toString();				
+		
+		return properties;
+	}
+
+	public String toQuery() {
+		return "ATRAKCJE";
+	}
+	
 }

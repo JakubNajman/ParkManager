@@ -56,4 +56,20 @@ public class DiabelskieMlyny {
 	public void setIlośćKoszy(BigDecimal ilośćKoszy) {
 		this.ilośćKoszy = ilośćKoszy;
 	}
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("ilosc_koszy,/'" + getIlośćKoszy().toString() + "',/")
+				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "',/")
+				.append("rodzaj_kosza,/'" + getRodzajKosza().toString() + "',/")
+				.append("wysokosc,/'" + getWysokosc().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "DIABELSKIE_MLYNY";
+	}
+
 }

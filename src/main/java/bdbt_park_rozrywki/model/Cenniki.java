@@ -42,4 +42,21 @@ public class Cenniki {
     public void setCenaZeZnizka(BigDecimal cenaZeZnizka) {
         this.cenaZeZnizka = cenaZeZnizka;
     }
+    
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("cena_podstawowa,/'" + getCenaPodstawowa().toString() + "',/")
+				.append("cena_ze_znizka,/'" + getCenaZeZnizka().toString() + "',/")
+				.append("nr_cennika,/'" + getNrCennika().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "CENNIKI";
+	}
+
+    
 }

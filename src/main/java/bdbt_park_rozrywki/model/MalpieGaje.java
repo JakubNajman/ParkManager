@@ -55,4 +55,20 @@ public class MalpieGaje {
     public void setPowierzchniaMetry(BigDecimal powierzchniaMetry) {
         this.powierzchniaMetry = powierzchniaMetry;
     }
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("cena_godzina,/'" + getCenaGodzina().toString() + "',/")
+				.append("ilosc_sekcji,/'" + getIloscSekcji().toString() + "',/")
+				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "',/")
+				.append("powierzchnia_metry,/'" + getPowierzchniaMetry().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "MALPIE_GAJE";
+	}
+
 }

@@ -56,4 +56,20 @@ public class Kolejki {
 	public void setIloscWagoników(BigDecimal iloscWagoników) {
 		this.iloscWagoników = iloscWagoników;
 	}
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("cena_przejazdu,/'" + getCenaPrzejazdu().toString() + "',/")
+				.append("czy_dzieci,/'" + getCzyDzieci().toString() + "',/")
+				.append("ilosc_wagonikow,/'" + getIloscWagoników().toString() + "',/")
+				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "KOLEJKI";
+	}
+
 }

@@ -29,4 +29,18 @@ public class Kucharze {
     public void setStopienKucharza(BigDecimal stopienKucharza) {
         this.stopienKucharza = stopienKucharza;
     }
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("numer_pracownika,/'" + getNumerPracownika().toString() + "',/")
+				.append("stopien_kucharza,/'" + getStopienKucharza().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "KUCHARZE";
+	}
+
 }

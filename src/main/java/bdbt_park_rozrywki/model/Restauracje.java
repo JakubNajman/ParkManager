@@ -95,4 +95,23 @@ public class Restauracje {
     public void setNumerParku(BigDecimal numerParku) {
         this.numerParku = numerParku;
     }
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("data_kontroli,/'" + getDataKontroli().toString() + "',/")
+				.append("dostepnosc_alkoholu,/'" + getDostepnoscAlkoholu().toString() + "',/")
+				.append("ilosc_miejsc,/'" + getIloscMiejsc().toString() + "',/")
+				.append("nazwa_restauracji,/'" + getNazwaRestauracji().toString() + "',/")
+				.append("numer_parku,/'" + getNumerParku().toString() + "',/")
+				.append("numer_restauracji,/'" + getNumerRestauracji().toString() + "',/")
+				.append("styl_kuchni,/'" + getStylKuchni().toString() + "'")
+				.toString();
+		return properties;
+	}
+
+	public String toQuery() {
+		return "RESTAURACJE";
+	}
+
 }
