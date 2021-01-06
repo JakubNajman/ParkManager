@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parki_Rozrywki</title>
+  </head>
+  <body>
+    <div>
+      <h1>Parki_Rozrywki</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Nr_Parku</th>
+            <th>Nazwa_Parku</th>
+            <th>Data_Zalozenia</th>
+            <th>Liczba_Pracownikow</th>
+            <th>Nr_Adresu</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Parki_Rozrywki: ${listParki_Rozrywki}">
+            <td th:text="${Parki_Rozrywki.numerParku}">Nr_Parku</td>
+            <td th:text="${Parki_Rozrywki.nazwaParku}">Nazwa_Parku</td>
+            <td th:text="${Parki_Rozrywki.dataZałożenia}">Data_Zalozenia</td>
+            <td th:text="${Parki_Rozrywki.liczbaPracownikow}">Liczba_Pracownikow</td>
+            <td th:text="${Parki_Rozrywki.nrAdresu}">Nr_Adresu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

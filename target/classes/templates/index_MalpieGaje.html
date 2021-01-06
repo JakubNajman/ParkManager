@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Malpie_Gaje</title>
+  </head>
+  <body>
+    <div>
+      <h1>Malpie_Gaje</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Numer_Atrakcji</th>
+            <th>Cena_Godzina</th>
+            <th>Ilosc_Sekcji</th>
+            <th>Powierzchnia_Metry</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="MalpieGaje: ${listMalpieGaje}">
+            <td th:text="${MalpieGaje.numerAtrakcji}">Numer_Atrakcji</td>
+            <td th:text="${MalpieGaje.cenaGodzina}">Cena_Godzina</td>
+            <td th:text="${MalpieGaje.iloscSekcji}">Ilosc_Sekcji</td>
+            <td th:text="${MalpieGaje.powierzchniaMetry}">Powierzchnia_Metry</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

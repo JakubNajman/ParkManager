@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kucharze</title>
+  </head>
+  <body>
+    <div>
+      <h1>Kucharze</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Nr_Pracownika</th>
+            <th>Stopien_Kucharza</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Kucharze: ${listKucharze}">
+            <td th:text="${Kucharze.numerPracownika}">Nr_Pracownika</td>
+            <td th:text="${Kucharze.stopienKucharza}">Stopien_Kucharza</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

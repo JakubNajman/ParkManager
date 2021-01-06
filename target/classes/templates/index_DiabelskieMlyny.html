@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diabelskie_Mlyny</title>
+  </head>
+  <body>
+    <div>
+      <h1>Diabelskie_Mlyny</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+			      <th>Numer_Atrakcji</th>
+            <th>Ilosc_Koszy</th>
+            <th>Rodzaj_Kosza</th>
+            <th>Wysokosc</th>
+          </tr>
+		</thread>
+		
+		<!--Tablce body-->
+		<tbody>
+			<tr th:each = "DiabelskieMlyny: ${listDiabelskieMlyny}">
+				<td th:text = "${DiabelskieMlyny.numerAtrakcji}">Numer_Atrakcji</td>
+				<td th:text = "${DiabelskieMlyny.ilośćKoszy}">Ilosc_Koszy</td>
+				<td th:text = "${DiabelskieMlyny.rodzajKosza}">Rodzaj_Kosza</td>
+				<td th:text = "${DiabelskieMlyny.wysokosc}">Wysokosc</td>
+			</tr>
+		</tbody>
+      </table>
+    </div>
+  </body>
+</html>

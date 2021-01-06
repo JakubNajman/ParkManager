@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cenniki</title>
+  </head>
+  <body>
+    <div>
+      <h1>Cenniki</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Cena_Podstawowa</th>
+            <th>Cena_Ze_Znizka</th>
+            <th>Nr_Cennika</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Cenniki: ${listCenniki}">
+            <td th:text="${Cenniki.cenaPodstawowa}">Nr_Adresu</td>
+            <td th:text="${Cenniki.cenaZeZnizka}">Cena_Ze_Znizka</td>
+            <td th:text="${Cenniki.nrCennika}">Nr_Cennika</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

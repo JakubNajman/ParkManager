@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Atrakcje</title>
+  </head>
+  <body>
+    <div>
+      <h1>Atrakcje</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Data_Konserwacji</th>
+            <th>Godzina_Otwarcia</th>
+            <th>Godzina_Zamkniecia</th>
+            <th>Nr_Cennika</th>
+            <th>Nr_Atrakcji</th>
+            <th>Nr_Parku</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Atrakcje: ${listAtrakcje}">
+            <td th:text="${Atrakcje.dataKonserwacji}">Data_Konserwacji</td>
+            <td th:text="${Atrakcje.godzinaOtwarcia}">Godzina_Otwarcia</td>
+            <td th:text="${Atrakcje.godzinaZamknięcia}">Godzina_Zamkniecia</td>
+            <td th:text="${Atrakcje.nrCennika}">Nr_Cennika</td>
+            <td th:text="${Atrakcje.numerAtrakcji}">Nr_Atrakcji</td>
+            <td th:text="${Atrakcje.numerParku}">Nr_Parku</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

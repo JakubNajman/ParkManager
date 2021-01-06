@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Restauracje</title>
+  </head>
+  <body>
+    <div>
+      <h1>Restauracje</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Nr_Restauracji</th>
+            <th>Nazwa_Restauracji</th>
+            <th>Data_Kontroli</th>
+            <th>Dostepnosc_Alkoholu</th>
+            <th>Ilosc_Miejsc</th>
+            <th>Nr_Parku</th>
+            <th>Styl_Kuchni</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Restauracje: ${listRestauracje}">
+            <td th:text="${Restauracje.numerRestauracji}">Nr_Restauracji</td>
+            <td th:text="${Restauracje.nazwaRestauracji}">Nazwa_Restauracji</td>
+            <td th:text="${Restauracje.dataKontroli}">Data_Kontroli</td>
+            <td th:text="${Restauracje.dostepnoscAlkoholu}">Dostepnosc_Alkoholu</td>
+            <td th:text="${Restauracje.iloscMiejsc}">Ilosc_Miejsc</td>
+            <td th:text="${Restauracje.numerParku}">Nr_Parku</td>
+            <td th:text="${Restauracje.stylKuchni}">Styl_Kuchni</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

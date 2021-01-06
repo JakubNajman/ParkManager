@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kolejki</title>
+  </head>
+  <body>
+    <div>
+      <h1>Kolejki</h1>
+      <table border="1" cellpadding="10">
+        <thread>
+          <tr>
+            <th>Numer_Atrakcji</th>
+            <th>Cena_Przejazdu</th>
+            <th>Czy_Dzieci</th>
+            <th>Ilosc_Wagonikow</th>
+          </tr>
+        </thread>
+
+        <!--Tablce body-->
+        <tbody>
+          <tr th:each="Kolejki: ${listKolejki}">
+            <td th:text="${Kolejki.numerAtrakcji}">Numer_Atrakcji</td>
+            <td th:text="${Kolejki.cenaPrzejazdu}">Cena_Przejazdu</td>
+            <td th:text="${Kolejki.czyDzieci}">Czy_Dzieci</td>
+            <td th:text="${Kolejki.iloscWagoników}">Ilosc_Wagonikow</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
