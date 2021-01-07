@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nowa_Kolejka</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Wpisz Nowa Kolejke</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Numer_Atrakcji:</td>
+            <td><input type="text" th:field="*{numerAtrakcji}" /></td>
+          </tr>
+          <tr>
+            <td>Cena_Przejazdu:</td>
+            <td><input type="text" th:field="*{cenaPrzejazdu}" /></td>
+          </tr>
+          <tr>
+            <td>Czy_Dzieci:</td>
+            <td><input type="text" th:field="*{czyDzieci}" /></td>
+          </tr>
+          <tr>
+            <td>Ilosc_Wagonikow:</td>
+            <td><input type="text" th:field="*{iloscWagoników}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>
