@@ -2,25 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Nowy_Cenniki</title>
+    <title>Nowy_Malpi_Gaj</title>
   </head>
   <body>
     <div align="center">
-      <h1>Dodaj Nowy Cennik</h1>
+      <h1>Wpisz Nowy Malpi Gaj</h1>
       <br />
       <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Nr_Cennika:</td>
-            <td><input type="text" th:field="*{nrCennika}" /></td>
+            <td>Numer_Atrakcji:</td>
+            <td><input type="text" th:field="*{numerAtrakcji}" /></td>
           </tr>
           <tr>
-            <td>Cena_Podstawowa:</td>
-            <td><input type="text" th:field="*{cenaPodstawowa}" /></td>
+            <td>Cena_Godzina:</td>
+            <td><input type="text" th:field="*{cenaGodzina}" /></td>
           </tr>
           <tr>
-            <td>Cena_Ze_Znizka:</td>
-            <td><input type="text" th:field="*{cenaZeZnizka}" /></td>
+            <td>Ilosc_Sekcji:</td>
+            <td><input type="text" th:field="*{iloscSekcji}" /></td>
+          </tr>
+          <tr>
+            <td>Powierzchnia_Metry:</td>
+            <td><input type="text" th:field="*{powierzchniaMetry}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

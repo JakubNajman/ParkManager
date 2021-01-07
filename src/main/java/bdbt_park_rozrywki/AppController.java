@@ -23,7 +23,7 @@ public class AppController {
 		@SuppressWarnings("unchecked")
 		List<Object> listAdresy = uDAO.list();
 		model.addAttribute("listAdresy", listAdresy);
-		return "index";
+		return "index_Adresy";
 	}
 
 }

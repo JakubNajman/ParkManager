@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Nowa_Atrakcja</title>
+    <title>Aktualizuj_Atrakcja</title>
   </head>
   <body>
     <div align="center">
-      <h1>Dodaj Nowa Atrakcje</h1>
+      <h1>Aktualizuj Atrakcje</h1>
       <br />
       <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
         <table border="1" cellpadding="10">
           <tr>
             <td>Nr_Atrakcji:</td>
-            <td><input type="text" th:field="*{numerAtrakcji}" /></td>
+            <td><input type="text" th:field="*{numerAtrakcji}" readonly="readonly"  /></td>
           </tr>
           <tr>
             <td>Data_Konserwacji:</td>
@@ -29,7 +29,7 @@
           <tr>
             <td>Nr_Cennika:</td>
             <td><input type="text" th:field="*{nrCennika}" /></td>
-          </tr>
+          </tr>        
           <tr>
             <td>Nr_Parku:</td>
             <td><input type="text" th:field="*{numerParku}" /></td>

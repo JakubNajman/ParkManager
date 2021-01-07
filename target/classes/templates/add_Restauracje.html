@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nowa_Restauracja</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Wpisz Nowa Restauracje</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Nr_Restauracji:</td>
+            <td><input type="text" th:field="*{numerRestauracji}" /></td>
+          </tr>
+          <tr>
+            <td>Nazwa_Restauracji:</td>
+            <td><input type="text" th:field="*{nazwaRestauracji}" /></td>
+          </tr>
+          <tr>
+            <td>Data_Kontroli:</td>
+            <td><input type="text" th:field="*{dataKontroli}" /></td>
+          </tr>
+          <tr>
+            <td>Dostepnosc_Alkoholu:</td>
+            <td><input type="text" th:field="*{dostepnoscAlkoholu}" /></td>
+          </tr>
+          <tr>
+            <td>Ilosc_Miejsc:</td>
+            <td><input type="text" th:field="*{iloscMiejsc}" /></td>
+          </tr>
+          <tr>
+            <td>Nr_Parku:</td>
+            <td><input type="text" th:field="*{numerParku}" /></td>
+          </tr>
+          <tr>
+            <td>Styl_Kuchni:</td>
+            <td><input type="text" th:field="*{stylKuchni}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>
