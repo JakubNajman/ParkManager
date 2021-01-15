@@ -18,9 +18,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UniversalDAO {
 
-	@Autowired
+	@Autowired(required = true)
 	private JdbcTemplate jdbcTemplate;
-	private static Object entity;
+//	@Qualifier("universalDAO")
+//	private Object entity;
 
 	private static final String QUERY_BEG = "SELECT * FROM";
 	private static final String QUERY_INSERT = "INSERT INTO ";
@@ -31,26 +32,26 @@ public class UniversalDAO {
 	private static final String QUERY_WHERE = " WHERE ";
 
 	/* Konstruktor. */
-	@SuppressWarnings("static-access")
-	public UniversalDAO(JdbcTemplate jdbcTemplate, Object entity) {
+//	@SuppressWarnings("static-access")
+
+	public UniversalDAO(JdbcTemplate jdbcTemplate) {
 		super();
 		this.jdbcTemplate = jdbcTemplate;
-		this.entity = entity;
+		// this.entity = entity;
 	}
 
 	/* Inicjalizator przechowywania danych. */
-	@SuppressWarnings("unchecked")
-	public List<Object> list() {
+//	@SuppressWarnings("unchecked")
+	public List<Object> list(Object entity) {
 		String query = "SELECT * FROM ";
 		query = new StringBuilder(query).append(entity.getClass().getSimpleName().toUpperCase()).toString();
-		List<Object> list = listInitializer(query);
+		List<Object> list = listInitializer(entity, query);
 		return list;
 	}
 
 	/* Metody pomocnicze */
-
 	@SuppressWarnings("unchecked")
-	public List<Object> listInitializer(String query) {
+	public List<Object> listInitializer(Object entity, String query) {
 		return (List<Object>) jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(entity.getClass()));
 	}
 
@@ -63,7 +64,7 @@ public class UniversalDAO {
 	}
 
 	/* (C)reate */
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	public void save(Object entity) {
 		String[] par = propertiesToArray(entity);
 
@@ -89,16 +90,17 @@ public class UniversalDAO {
 	}
 
 	/* (R)ead */
-	public List<Object> getByField(String fieldName, String fieldValue) {
+	public List<Object> getByField(Object entity, String fieldName, String fieldValue) {
 		String query = QUERY_BEG;
 		query = new StringBuilder(query).append(entity.getClass().getSimpleName().toUpperCase()).append(" WHERE ")
 				.append(fieldName + "=" + fieldValue).toString();
-		List<Object> record = listInitializer(query);
+		List<Object> record = listInitializer(entity, query);
 		return record;
 	}
 
 	/* (U)pdate */
-	public void update(String fieldConditionName, String fieldCondtitonValue, String... fieldNameAndFieldValues) {
+	public void update(Object entity, String fieldConditionName, String fieldCondtitonValue,
+			String... fieldNameAndFieldValues) {
 		if (fieldNameAndFieldValues.length % 2 == 0)
 			try {
 				String query = QUERY_UPDATE;
@@ -131,7 +133,7 @@ public class UniversalDAO {
 	}
 
 	/* (D)elete */
-	public void deleteByField(String fieldName, String fieldValue) {
+	public void deleteByField(Object entity, String fieldName, String fieldValue) {
 		if (!fieldValue.isEmpty() && !fieldName.isEmpty())
 			try {
 				String query = QUERY_DELETE;

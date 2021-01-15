@@ -19,7 +19,7 @@ class UniversalDAOTest {
 		dataSource.setPassword("12345");
 		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 
-		uDAO = new UniversalDAO(new JdbcTemplate(dataSource), new Adresy());
+		uDAO = new UniversalDAO(new JdbcTemplate(dataSource));
 	}
 
 //	@Test
@@ -44,7 +44,7 @@ class UniversalDAOTest {
 
 	@Test
 	void testDelete() {
-		uDAO.deleteByField("MIASTO", "namimaciek");
+		uDAO.deleteByField(new Adresy(), "MIASTO", "namimaciek");
 	}
 
 }

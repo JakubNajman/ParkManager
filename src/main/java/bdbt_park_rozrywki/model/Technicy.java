@@ -1,45 +1,46 @@
 package bdbt_park_rozrywki.model;
 
 import java.math.BigDecimal;
+
 import javax.annotation.Generated;
 
 public class Technicy {
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_PRACOWNIKA")
-    private BigDecimal numerPracownika;
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_PRACOWNIKA")
+	private BigDecimal numerPracownika;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_POZWOLENIA")
-    private String numerPozwolenia;
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_POZWOLENIA")
+	private String numerPozwolenia;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.WYKSZTA£CENIE_TECHNICZNE")
-    private String wykszta≥cenieTechniczne;
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTAÔøΩCENIE_TECHNICZNE")
+	private String wykszta≈ÇcenieTechniczne;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_PRACOWNIKA")
-    public BigDecimal getNumerPracownika() {
-        return numerPracownika;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_PRACOWNIKA")
+	public BigDecimal getNumerPracownika() {
+		return numerPracownika;
+	}
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_PRACOWNIKA")
-    public void setNumerPracownika(BigDecimal numerPracownika) {
-        this.numerPracownika = numerPracownika;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_PRACOWNIKA")
+	public void setNumerPracownika(BigDecimal numerPracownika) {
+		this.numerPracownika = numerPracownika;
+	}
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_POZWOLENIA")
-    public String getNumerPozwolenia() {
-        return numerPozwolenia;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_POZWOLENIA")
+	public String getNumerPozwolenia() {
+		return numerPozwolenia;
+	}
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.NUMER_POZWOLENIA")
-    public void setNumerPozwolenia(String numerPozwolenia) {
-        this.numerPozwolenia = numerPozwolenia;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_POZWOLENIA")
+	public void setNumerPozwolenia(String numerPozwolenia) {
+		this.numerPozwolenia = numerPozwolenia;
+	}
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.WYKSZTA£CENIE_TECHNICZNE")
-    public String getWykszta≥cenieTechniczne() {
-        return wykszta≥cenieTechniczne;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTAÔøΩCENIE_TECHNICZNE")
+	public String getWykszta≈ÇcenieTechniczne() {
+		return wykszta≈ÇcenieTechniczne;
+	}
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2021-01-15T16:12:35.8329926+01:00", comments="Source field: TECHNICY.WYKSZTA£CENIE_TECHNICZNE")
-    public void setWykszta≥cenieTechniczne(String wykszta≥cenieTechniczne) {
-        this.wykszta≥cenieTechniczne = wykszta≥cenieTechniczne;
-    }
+	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTAÔøΩCENIE_TECHNICZNE")
+	public void setWykszta≈ÇcenieTechniczne(String wykszta≈ÇcenieTechniczne) {
+		this.wykszta≈ÇcenieTechniczne = wykszta≈ÇcenieTechniczne;
+	}
 }
