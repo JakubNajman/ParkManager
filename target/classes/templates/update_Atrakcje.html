@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aktualizuj_Atrakcja</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Aktualizuj Atrakcje</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Nr_Atrakcji:</td>
+            <td><input type="text" th:field="*{numerAtrakcji}" readonly="readonly"  /></td>
+          </tr>
+          <tr>
+            <td>Data_Konserwacji:</td>
+            <td><input type="text" th:field="*{dataKonserwacji}" /></td>
+          </tr>
+          <tr>
+            <td>Godzina_Otwarcia:</td>
+            <td><input type="text" th:field="*{godzinaOtwarcia}" /></td>
+          </tr>
+          <tr>
+            <td>Godzina_Zamkniecia:</td>
+            <td><input type="text" th:field="*{godzinaZamknięcia}" /></td>
+          </tr>
+          <tr>
+            <td>Nr_Cennika:</td>
+            <td><input type="text" th:field="*{nrCennika}" /></td>
+          </tr>        
+          <tr>
+            <td>Nr_Parku:</td>
+            <td><input type="text" th:field="*{numerParku}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>

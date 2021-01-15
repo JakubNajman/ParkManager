@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aktualizuj_Adres</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Aktualizuj Adres</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Nr_Adresu:</td>
+            <td><input type="text" th:field="*{nr_adresu}" readonly="readonly" /></td>
+          </tr>
+          <tr>
+            <td>Kod_Pocztowy:</td>
+            <td><input type="text" th:field="*{kod_pocztowy}" /></td>
+          </tr>
+          <tr>
+            <td>Miasto:</td>
+            <td><input type="text" th:field="*{miasto}" /></td>
+          </tr>
+          <tr>
+            <td>Nr_Lokalu:</td>
+            <td><input type="text" th:field="*{nr_lokalu}" /></td>
+          </tr>
+          <tr>
+            <td>Ulica:</td>
+            <td><input type="text" th:field="*{ulica}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>

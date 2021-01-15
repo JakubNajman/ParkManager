@@ -37,14 +37,14 @@ class UniversalDAOTest {
 
 	@Test
 	void testSave() {
-		Adresy adresy1 = new Adresy(48, "namimaciek", "test", "test", 1);
+		Adresy adresy1 = new Adresy(48, "dziwnezedziala", "cxd", "ddd", 1);
 
 		uDAO.save(adresy1);
 	}
 
-//	@Test
-//	void testDelete() {
-//		uDAO.deleteByField("MIASTO", "namimaciek");
-//	}
+	@Test
+	void testDelete() {
+		uDAO.deleteByField("MIASTO", "namimaciek");
+	}
 
 }

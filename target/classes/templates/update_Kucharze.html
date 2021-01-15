@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aktualizuj_Kucharz</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Aktualizuj Kucharza</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Nr_Pracownika:</td>
+            <td><input type="text" th:field="*{numerPracownika}" readonly="readonly" /></td>
+          </tr>
+          <tr>
+            <td>Stopien_Kucharza:</td>
+            <td><input type="text" th:field="*{stopienKucharza}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>

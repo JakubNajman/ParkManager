@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aktualizuj_Park_Rozrywki</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Aktualizuj Park Rozrywki</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td>Nr_Parku:</td>
+            <td><input type="text" th:field="*{numerParku}"  readonly="readonly"/></td>
+          </tr>
+          <tr>
+            <td>Nazwa_Parku:</td>
+            <td><input type="text" th:field="*{nazwaParku}" /></td>
+          </tr>
+          <tr>
+            <td>Data_Zalozenia:</td>
+            <td><input type="text" th:field="*{dataZałożenia}" /></td>
+          </tr>
+          <tr>
+            <td>Liczba_Pracownikow:</td>
+            <td><input type="text" th:field="*{liczbaPracownikow}" /></td>
+          </tr>
+          <tr>
+            <td>Nr_Adresu:</td>
+            <td><input type="text" th:field="*{nrAdresu}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">SAVE</button></td>
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>
