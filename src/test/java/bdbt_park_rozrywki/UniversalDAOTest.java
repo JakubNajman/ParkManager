@@ -37,9 +37,10 @@ class UniversalDAOTest {
 
 	@Test
 	void testSave() {
-		Adresy adresy1 = new Adresy(48, "dziwnezedziala", "cxd", "ddd", 1);
-
+		Adresy adresy1 = new Adresy(48, "namimaciek", "cxd", "ddd", 1);
+		Adresy adresy2 = new Adresy(50, "cdd", "dupa", "dupa", 1);
 		uDAO.save(adresy1);
+		uDAO.save(adresy2);
 	}
 
 	@Test

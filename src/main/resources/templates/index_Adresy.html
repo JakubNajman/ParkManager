@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Adresy</title>
-  </head>
-  <body>
-    <div align="center">
-      <h1>Adresy</h1>
-      <table border="1" cellpadding="10">
-        <thread>
-          <tr>
-			<th>Nr_Adresu</th>
-            <th>Kod_Pocztowy</th>
-            <th>Miasto</th>
-            <th>Nr_Lokalu</th>
-            <th>Ulica</th>
-          </tr>
-		</thread>
-		
-		<!--Tablce body-->
-		<tbody>
-			<tr th:each = "Adresy: ${listAdresy}">
-				<td th:text = "${Adresy.nr_adresu}">Nr_Adresu</td>
-				<td th:text = "${Adresy.kod_pocztowy}">Kod_Pocztowy</td>
-				<td th:text = "${Adresy.miasto}">Miasto</td>
-				<td th:text = "${Adresy.nr_lokalu}">Nr_Lokalu</td>
-        <td th:text = "${Adresy.ulica}">Ulica</td>
-        <td>
-          <a th:href="@{'/edit/'+
-
-        </td>
-
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Adresy</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Adresy</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Adresu</th>
+				<th>Kod_Pocztowy</th>
+				<th>Miasto</th>
+				<th>Nr_Lokalu</th>
+				<th>Ulica</th>
 			</tr>
-		</tbody>
-      </table>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
-    </div>
-  </body>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Adresy: ${listAdresy}">
+					<td th:text="${Adresy.nr_adresu}">Nr_Adresu</td>
+					<td th:text="${Adresy.kod_pocztowy}">Kod_Pocztowy</td>
+					<td th:text="${Adresy.miasto}">Miasto</td>
+					<td th:text="${Adresy.nr_lokalu}">Nr_Lokalu</td>
+					<td th:text="${Adresy.ulica}">Ulica</td>
+			</tbody>
+		</table>
+		<a href="/add_Adresy">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
 </html>
+

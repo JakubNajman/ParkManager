@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import bdbt_park_rozrywki.adresy.Adresy;
-import bdbt_park_rozrywki.adresy.AdresyDAO;
 
 @Controller
 public class AppController {
@@ -26,12 +28,31 @@ public class AppController {
 //	}
 
 	@Autowired
-	private AdresyDAO dao;
+	private UniversalDAO dao;
 
-	public String viewHomePage(Model model) {
-		List<Adresy> listAdresy = dao.list();
+	@RequestMapping("/")
+	public String viewTablesPage(Model model) {
+		return "tabele";
+	}
+
+	@RequestMapping("/index_Adresy")
+	public String viewAdresyPage(Model model) {
+		List<Object> listAdresy = dao.list(new Adresy());
 		model.addAttribute("listAdresy", listAdresy);
-		return "index";
+		return "index_Adresy";
+	}
+
+	@RequestMapping("/add_Adresy")
+	public String newAdresy(Model model) {
+		Adresy adresy = new Adresy();
+		model.addAttribute("adresy", adresy);
+		return "add_Adresy";
+	}
+
+	@RequestMapping(value = "/saveAdresy", method = RequestMethod.POST)
+	public String saveAdresy(@ModelAttribute("adresy") Adresy adresy) {
+		dao.save(adresy);
+		return "redirect:/adresy";
 	}
 
 }
