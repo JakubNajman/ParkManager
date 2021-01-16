@@ -43,4 +43,19 @@ public class Technicy {
 	public void setWykształcenieTechniczne(String wykształcenieTechniczne) {
 		this.wykształcenieTechniczne = wykształcenieTechniczne;
 	}
+	
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("numerPozwolenia,/'" + getNumerPozwolenia().toString() + "',/")
+				.append("numerPracownika,/'" + getNumerPracownika().toString() + "',/")
+				.append("wykształcenieTechniczne/'" + getWykształcenieTechniczne().toString() + "'").toString();				
+		
+		return properties;
+	}
+	
+	public String toQuery() {
+		return "TECHNICY";
+	}
 }

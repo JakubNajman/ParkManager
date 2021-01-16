@@ -42,4 +42,17 @@ public class Stanowiska {
     public void setOpis(String opis) {
         this.opis = opis;
     }
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("nazwa,/'" + getNazwa().toString() + "',/")
+				.append("nrStanowiska,/'" + getNrStanowiska().toString() + "',/")				
+				.append("opis/'" + getOpis().toString() + "'").toString();				
+		return properties;
+	}
+    
+    public String toQuery() {
+		return "STANOWISKA";
+	}
 }

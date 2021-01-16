@@ -55,4 +55,20 @@ public class Samochodziki {
     public void setRozmiarToru(BigDecimal rozmiarToru) {
         this.rozmiarToru = rozmiarToru;
     }
+    
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("czasJazdy,/'" +getCzasJazdy().toString() + "',/")
+				.append("iloscSamochodzikow,/'" + getIloscSamochodzikow().toString() + "',/")
+				.append("numerAtrakcji,/'" + getNumerAtrakcji().toString() + "',/")
+				.append("rozmiarToru/'" + getRozmiarToru().toString() + "'").toString();				
+		
+		return properties;
+	}
+    
+    public String toQuery() {
+		return "SAMOCHODZIKI";
+	}
 }

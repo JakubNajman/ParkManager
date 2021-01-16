@@ -56,4 +56,20 @@ public class Wynagrodzenia {
     public void setKwotaDodatkowa(BigDecimal kwotaDodatkowa) {
         this.kwotaDodatkowa = kwotaDodatkowa;
     }
+    
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("dataPrzelewu,/'" + getDataPrzelewu().toString() + "',/")
+				.append("kwotaDodatkowa,/'" + getKwotaDodatkowa().toString() + "',/")
+				.append("kwotaPodstawowa,/'" + getKwotaPodstawowa().toString() + "',/")
+				.append("nrWynagrodzenia/'" + getNrWynagrodzenia().toString() + "'").toString();				
+		
+		return properties;
+	}
+    
+    public String toQuery() {
+		return "WYNAGRODZENIA";
+	}
 }
