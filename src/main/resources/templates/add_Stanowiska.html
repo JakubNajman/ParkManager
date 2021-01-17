@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Nowe_Stanowisko</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Dodaj Nowe Stanowisko</h1>
+		<br />
+		<form action="#" th:action="@{/saveStanowiska}" th:object="${stanowiska}"
+			method="POST">
+		<table border="1" cellpadding="10">
+			<tr>
+				<td>Nr_Stanowiska:</td>
+				<td><input type="text" th:field="*{nrStanowiska}" /></td>
+			</tr>
+			<tr>
+				<td>Nazwa:</td>
+				<td><input type="text" th:field="*{nazwa}" /></td>
+			</tr>
+			<tr>
+				<td>Opis:</td>
+				<td><input type="text" th:field="*{opis}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">SAVE</button></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

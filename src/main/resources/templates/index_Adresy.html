@@ -16,6 +16,7 @@
 				<th>Miasto</th>
 				<th>Nr_Lokalu</th>
 				<th>Ulica</th>
+				<th>Actions</th>
 			</tr>
 			</thread>
 
@@ -27,6 +28,9 @@
 					<td th:text="${Adresy.miasto}">Miasto</td>
 					<td th:text="${Adresy.nr_lokalu}">Nr_Lokalu</td>
 					<td th:text="${Adresy.ulica}">Ulica</td>
+					<td><a th:href="@{/updateAdresy/+ ${adresy.id}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{/deleteAdresy/+ ${adresy.id}}">Usun</a></td>
 			</tbody>
 		</table>
 		<a href="/add_Adresy">Dodaj element do tabeli</a>

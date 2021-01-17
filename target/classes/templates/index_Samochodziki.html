@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Samochodziki</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Samochodziki</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Atrakcji</th>
+				<th>Ilosc_Samochodzikow</th>
+				<th>Czas_Jazdy</th>
+				<th>Rozmiar_Toru</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Samochodziki: ${listSamochodziki}">
+					<td th:text="${Samochodziki.numerAtrakcji}">Nr_Atrakcji</td>
+					<td th:text="${Samochodziki.iloscSamochodzikow}">Ilosc_Samochodzikow</td>
+					<td th:text="${Samochodziki.czasJazdy}">Czas_Jazdy</td>
+					<td th:text="${Samochodziki.rozmiarToru}">Rozmiar_Toru</td>
+					<td><a th:href="@{/updateSamochodziki/+ ${samochodziki.id}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{/deleteSamochodziki/+ ${samochodziki.id}}">Usun</a></td>
+			</tbody>
+		</table>
+		<a href="/add_Samochodziki">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
+</html>
+

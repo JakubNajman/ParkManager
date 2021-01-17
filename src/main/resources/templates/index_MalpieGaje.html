@@ -14,6 +14,7 @@
             <th>Cena_Godzina</th>
             <th>Ilosc_Sekcji</th>
             <th>Powierzchnia_Metry</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -24,6 +25,9 @@
             <td th:text="${MalpieGaje.cenaGodzina}">Cena_Godzina</td>
             <td th:text="${MalpieGaje.iloscSekcji}">Ilosc_Sekcji</td>
             <td th:text="${MalpieGaje.powierzchniaMetry}">Powierzchnia_Metry</td>
+            <td><a th:href="@{/updateMalpieGaje/+ ${malpie_gaje.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteMalpieGaje/+ ${malpie_gaje.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>

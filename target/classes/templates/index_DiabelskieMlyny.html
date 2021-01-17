@@ -14,6 +14,7 @@
             <th>Ilosc_Koszy</th>
             <th>Rodzaj_Kosza</th>
             <th>Wysokosc</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -24,10 +25,13 @@
             <td th:text="${DiabelskieMlyny.ilośćKoszy}">Ilosc_Koszy</td>
             <td th:text="${DiabelskieMlyny.rodzajKosza}">Rodzaj_Kosza</td>
             <td th:text="${DiabelskieMlyny.wysokosc}">Wysokosc</td>
+            <td><a th:href="@{/updateDiabelskieMlyny/+ ${diabelskie_mlyny.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteDiabelskieMlyny/+ ${diabelskie_mlyny.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
-      <a href="/add_Adresy">Dodaj element do tabeli</a>
+      <a href="/add_DiabelskieMlyny">Dodaj element do tabeli</a>
       <a href="/tabele">Powrot do rozpiski tabel</a>
     </div>
   </body>

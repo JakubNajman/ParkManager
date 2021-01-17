@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Technicy</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Technicy</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Pracownika</th>
+				<th>Nr_Pozwolenia</th>
+				<th>Wyksztalcenie_Techniczne</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Technicy: ${listTechnicy}">
+					<td th:text="${Technicy.numerPracownika}">Nr_Pracownika</td>
+					<td th:text="${Technicy.numerPozwolenia}">Nr_Pozwolenia</td>
+					<td th:text="${Technicy.wykształcenieTechniczne}">Wyksztalcenie_Techniczne</td>
+					<td><a th:href="@{/updateTechnicy/+ ${technicy.id}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{/deleteTechnicy/+ ${technicy.id}}">Usun</a></td>
+			</tbody>
+		</table>
+		<a href="/add_Technicy">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
+</html>
+

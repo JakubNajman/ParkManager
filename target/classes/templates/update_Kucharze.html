@@ -8,7 +8,7 @@
     <div align="center">
       <h1>Aktualizuj Kucharza</h1>
       <br />
-      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+      <form action="#" th:action="@{/updateKucharze}" th:object="${kucharze}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
             <td>Nr_Pracownika:</td>
@@ -22,7 +22,7 @@
             <td colspan="2"><button type="submit">SAVE</button></td>
           </tr>
         </table>
-      </from>
+      </form>
     </div>
   </body>
 </html>

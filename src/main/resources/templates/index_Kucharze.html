@@ -12,6 +12,7 @@
           <tr>
             <th>Nr_Pracownika</th>
             <th>Stopien_Kucharza</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -20,6 +21,11 @@
           <tr th:each="Kucharze: ${listKucharze}">
             <td th:text="${Kucharze.numerPracownika}">Nr_Pracownika</td>
             <td th:text="${Kucharze.stopienKucharza}">Stopien_Kucharza</td>
+            <td>
+              <a th:href="@{/updateKucharze/+ ${kucharze.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteKucharze/+ ${kucharze.id}}">Usun</a>
+            </td>
           </tr>
         </tbody>
       </table>

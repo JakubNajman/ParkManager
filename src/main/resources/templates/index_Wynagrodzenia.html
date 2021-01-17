@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Wynagrodzenia</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Wynagrodzenia</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Wynagrodzenia</th>
+				<th>Kwota_Dodatkowa</th>
+				<th>Kwota_Podstawowa</th>
+				<th>Data_Przelewu</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Wynagrodzenia: ${listWynagrodzenia}">
+					<td th:text="${Wynagrodzenia.nrWynagrodzenia}">Nr_Wynagrodzenia</td>
+					<td th:text="${Wynagrodzenia.kwotaDodatkowa}">Kwota_Dodatkowa</td>
+					<td th:text="${Wynagrodzenia.kwotaPodstawowa}">Kwota_Podstawowa</td>
+					<td th:text="${Wynagrodzenia.dataPrzelewu}">Data_Przelewu</td>
+					<td><a th:href="@{/updateWynagrodzenia/+ ${wynagrodzenia.id}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{/deleteWynagrodzenia/+ ${wynagrodzenia.id}}">Usun</a></td>
+			</tbody>
+		</table>
+		<a href="/add_Wynagrodzenia">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
+</html>
+

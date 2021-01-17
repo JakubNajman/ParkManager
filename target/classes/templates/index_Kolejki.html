@@ -14,6 +14,7 @@
             <th>Cena_Przejazdu</th>
             <th>Czy_Dzieci</th>
             <th>Ilosc_Wagonikow</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -24,9 +25,13 @@
             <td th:text="${Kolejki.cenaPrzejazdu}">Cena_Przejazdu</td>
             <td th:text="${Kolejki.czyDzieci}">Czy_Dzieci</td>
             <td th:text="${Kolejki.iloscWagoników}">Ilosc_Wagonikow</td>
+            <td><a th:href="@{/updateKolejki/+ ${kolejki.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteKolejki/+ ${kolejki.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
+      <a href="/add_Kolejki">Dodaj element do tabeli</a>
       <a href="/tabele">Powrot do rozpiski tabel</a>
     </div>
   </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Aktualizuj Technik</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Aktualizuj Technik</h1>
+		<br />
+		<form action="#" th:action="@{/updateTechnicy}" th:object="${technicy}"
+			method="POST">
+		<table border="1" cellpadding="10">
+			<tr>
+				<td>Nr_Pracownika:</td>
+				<td><input type="text" th:field="*{numerPracownika}" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Pozwolenia:</td>
+				<td><input type="text" th:field="*{numerPozwolenia}" /></td>
+			</tr>
+			<tr>
+				<td>Wyksztalcenie_Techniczne:</td>
+				<td><input type="text" th:field="*{wykształcenieTechniczne}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">SAVE</button></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

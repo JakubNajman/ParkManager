@@ -17,6 +17,7 @@
             <th>Ilosc_Miejsc</th>
             <th>Nr_Parku</th>
             <th>Styl_Kuchni</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -30,9 +31,13 @@
             <td th:text="${Restauracje.iloscMiejsc}">Ilosc_Miejsc</td>
             <td th:text="${Restauracje.numerParku}">Nr_Parku</td>
             <td th:text="${Restauracje.stylKuchni}">Styl_Kuchni</td>
+            <td><a th:href="@{/updateRestauracje/+ ${restauracje.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteRestauracje/+ ${restauracje.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
+      <a href="/add_Restauracje">Dodaj element do tabeli</a>
       <a href="/tabele">Powrot do rozpiski tabel</a>
     </div>
   </body>

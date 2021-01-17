@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Stanowiska</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Stanowiska</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Stanowiska</th>
+				<th>Nazwa</th>
+				<th>Opis</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Stanowiska: ${listStanowiska}">
+					<td th:text="${Stanowiska.nrStanowiska}">Nr_Stanowiska</td>
+					<td th:text="${Stanowiska.nazwa}">Nazway</td>
+					<td th:text="${Stanowiska.opis}">Opis</td>
+					<td><a th:href="@{/updateStanowiska/+ ${stanowiska.id}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{/deleteStanowiska/+ ${stanowiska.id}}">Usun</a></td>
+			</tbody>
+		</table>
+		<a href="/add_Stanowiska">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
+</html>
+

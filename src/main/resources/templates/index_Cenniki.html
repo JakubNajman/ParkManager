@@ -13,6 +13,7 @@
             <th>Nr_Cennika</th>
             <th>Cena_Podstawowa</th>
             <th>Cena_Ze_Znizka</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -22,6 +23,9 @@
             <td th:text="${Cenniki.nrCennika}">Nr_Cennika</td>
             <td th:text="${Cenniki.cenaPodstawowa}">Nr_Adresu</td>
             <td th:text="${Cenniki.cenaZeZnizka}">Cena_Ze_Znizka</td>
+            <td><a th:href="@{/updateCenniki/+ ${cenniki.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteCenniki/+ ${cenniki.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>

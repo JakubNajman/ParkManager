@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Aktualizuj_Samochodziki</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Aktualizuj Samochodziki</h1>
+		<br />
+		<form action="#" th:action="@{/updateSamochodziki}" th:object="${samochodziki}"
+			method="POST">
+		<table border="1" cellpadding="10">
+			<tr>
+				<td>Nr_Atrakcji:</td>
+				<td><input type="text" th:field="*{numerAtrakcji}" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td>Ilosc_Samochodzikow:</td>
+				<td><input type="text" th:field="*{iloscSamochodzikow}" /></td>
+			</tr>
+			<tr>
+				<td>Czas_Jazdy:</td>
+				<td><input type="text" th:field="*{czasJazdy}" /></td>
+			</tr>
+			<tr>
+				<td>Rozmiar_Toru:</td>
+				<td><input type="text" th:field="*{rozmiarToru}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">SAVE</button></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

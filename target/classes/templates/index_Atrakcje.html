@@ -15,8 +15,8 @@
             <th>Godzina_Otwarcia</th>
             <th>Godzina_Zamkniecia</th>
             <th>Nr_Cennika</th>
-
             <th>Nr_Parku</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -28,11 +28,14 @@
             <td th:text="${Atrakcje.godzinaOtwarcia}">Godzina_Otwarcia</td>
             <td th:text="${Atrakcje.godzinaZamknięcia}">Godzina_Zamkniecia</td>
             <td th:text="${Atrakcje.nrCennika}">Nr_Cennika</td>
-
             <td th:text="${Atrakcje.numerParku}">Nr_Parku</td>
+            <td><a th:href="@{/updateAtrakcje/+ ${atrakcje.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteAtrakcje/+ ${atrakcje.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
+      <a href="/add_Atrakcje">Dodaj element do tabeli</a>
       <a href="/tabele">Powrot do rozpiski tabel</a>
     </div>
   </body>

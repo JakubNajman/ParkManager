@@ -15,6 +15,7 @@
             <th>Data_Zalozenia</th>
             <th>Liczba_Pracownikow</th>
             <th>Nr_Adresu</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -26,9 +27,13 @@
             <td th:text="${Parki_Rozrywki.dataZałożenia}">Data_Zalozenia</td>
             <td th:text="${Parki_Rozrywki.liczbaPracownikow}">Liczba_Pracownikow</td>
             <td th:text="${Parki_Rozrywki.nrAdresu}">Nr_Adresu</td>
+            <td><a th:href="@{/updateParkiRozrywki/+ ${praki_rozrywki.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteParkiRozrywki/+ ${parki_rozrywki.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
+      <a href="/add_ParkiRozrywki">Dodaj element do tabeli</a>
       <a href="/tabele">Powrot do rozpiski tabel</a>
     </div>
   </body>

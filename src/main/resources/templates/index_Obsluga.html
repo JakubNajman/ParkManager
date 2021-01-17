@@ -13,6 +13,7 @@
             <th>Nr_Pracownika</th>
             <th>Sekcja_Obslugi</th>
             <th>Specjalny_Dostęp</th>
+            <th>Actions</th>
           </tr>
         </thread>
 
@@ -22,6 +23,9 @@
             <td th:text="${Obsluga.numerPracownika}">Nr_Pracownika</td>
             <td th:text="${Obsluga.sekcjaObslugi}">Sekcja_Obslugi</td>
             <td th:text="${Obsluga.specjalnyDostęp}">Specjalny_Dostep</td>
+            <td><a th:href="@{/updateObsluga/+ ${obsluga.id}}">Edytuj</a>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <a th:href="@{/deleteObsluga/+ ${obsluga.id}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
