@@ -26,12 +26,12 @@
             <td th:text="${Atrakcje.numerAtrakcji}">Nr_Atrakcji</td>
             <td th:text="${Atrakcje.dataKonserwacji}">Data_Konserwacji</td>
             <td th:text="${Atrakcje.godzinaOtwarcia}">Godzina_Otwarcia</td>
-            <td th:text="${Atrakcje.godzinaZamknięcia}">Godzina_Zamkniecia</td>
+            <td th:text="${Atrakcje.godzinaZamkniecia}">Godzina_Zamkniecia</td>
             <td th:text="${Atrakcje.nrCennika}">Nr_Cennika</td>
             <td th:text="${Atrakcje.numerParku}">Nr_Parku</td>
-            <td><a th:href="@{/updateAtrakcje/+ ${atrakcje.id}}">Edytuj</a>
+            <td><a th:href="@{'/updateAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteAtrakcje/+ ${atrakcje.id}}">Usun</a></td>
+              <a th:href="@{'/deleteAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Usun</a></td>
           </tr>
         </tbody>
       </table>

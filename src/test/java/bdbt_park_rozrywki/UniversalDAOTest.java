@@ -1,5 +1,7 @@
 package bdbt_park_rozrywki;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,21 +29,18 @@ class UniversalDAOTest {
 //		uDAO.update("MIASTO", "Radom", "ULICA", "ddd");
 //	}
 
-//	@Test
-//	void testList() {
-//		List<Object> listAdresy = uDAO.list();
-//		System.out.print(listAdresy);
-//		assertTrue(!listAdresy.isEmpty());
-//
-//	}
-
 	@Test
-	void testSave() {
-		Adresy adresy1 = new Adresy(48, "namimaciek", "cxd", "ddd", 1);
-		Adresy adresy2 = new Adresy(50, "cdd", "dupa", "dupa", 1);
-		uDAO.save(adresy1);
-		uDAO.save(adresy2);
+	void testList() {
+		List<Object> listAdresy = uDAO.list(new Adresy());
+		System.out.print(listAdresy);
+
 	}
+
+//	@Test
+//	void testSave() {
+//		Atrakcje atrakcje = new Atrakcje(1, );
+//		uDAO.save(adresy1);
+//	}
 
 	@Test
 	void testDelete() {
