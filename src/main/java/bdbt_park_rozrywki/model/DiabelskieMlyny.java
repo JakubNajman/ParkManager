@@ -15,7 +15,7 @@ public class DiabelskieMlyny {
 	private BigDecimal wysokosc;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:38:12.3829534+01:00", comments = "Source field: DIABELSKIE_MLYNY.ILO��_KOSZY")
-	private BigDecimal ilośćKoszy;
+	private BigDecimal iloscKoszy;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:38:12.3829534+01:00", comments = "Source field: DIABELSKIE_MLYNY.NUMER_ATRAKCJI")
 	public BigDecimal getNumerAtrakcji() {
@@ -48,23 +48,22 @@ public class DiabelskieMlyny {
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:38:12.3829534+01:00", comments = "Source field: DIABELSKIE_MLYNY.ILO��_KOSZY")
-	public BigDecimal getIlośćKoszy() {
-		return ilośćKoszy;
+	public BigDecimal getIloscKoszy() {
+		return iloscKoszy;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:38:12.3829534+01:00", comments = "Source field: DIABELSKIE_MLYNY.ILO��_KOSZY")
-	public void setIlośćKoszy(BigDecimal ilośćKoszy) {
-		this.ilośćKoszy = ilośćKoszy;
+	public void setIlośćKoszy(BigDecimal iloscKoszy) {
+		this.iloscKoszy = iloscKoszy;
 	}
+
 	@Override
 	public String toString() {
 		String properties = "";
-		properties = new StringBuilder(properties)
-				.append("ilosc_koszy,/'" + getIlośćKoszy().toString() + "',/")
+		properties = new StringBuilder(properties).append("ilosc_koszy,/'" + getIloscKoszy().toString() + "',/")
 				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "',/")
 				.append("rodzaj_kosza,/'" + getRodzajKosza().toString() + "',/")
-				.append("wysokosc,/'" + getWysokosc().toString() + "'")
-				.toString();
+				.append("wysokosc,/'" + getWysokosc().toString() + "'").toString();
 		return properties;
 	}
 

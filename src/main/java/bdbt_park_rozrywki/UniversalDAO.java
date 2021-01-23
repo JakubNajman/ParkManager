@@ -23,7 +23,7 @@ public class UniversalDAO {
 //	@Qualifier("universalDAO")
 //	private Object entity;
 
-	private static final String QUERY_BEG = "SELECT * FROM";
+	private static final String QUERY_BEG = "SELECT * FROM ";
 	private static final String QUERY_INSERT = "INSERT INTO ";
 	private static final String QUERY_VALUES = " VALUES ";
 	private static final String QUERY_DELETE = "DELETE FROM ";
@@ -85,7 +85,7 @@ public class UniversalDAO {
 		queryValues = new StringBuilder(queryValues).append(")").toString();
 
 		String query = queryColumns + queryValues;
-
+		System.out.println(query);
 		jdbcTemplate.execute(query);
 	}
 
@@ -117,6 +117,7 @@ public class UniversalDAO {
 				query = new StringBuilder(query).append(QUERY_WHERE)
 						.append(fieldConditionName + " = '" + fieldCondtitonValue + "'").toString();
 				try {
+					System.out.println(query);
 					jdbcTemplate.execute(query);
 				} catch (Exception e) {
 					System.out.println("Coś poszło nie tak. Wiadomość od JDBC: \n");

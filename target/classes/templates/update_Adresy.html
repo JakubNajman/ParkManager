@@ -11,10 +11,6 @@
       <form action="#" th:action="@{/updateAdresy}" th:object="${adresy}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Nr_Adresu:</td>
-            <td><input type="text" th:field="*{nr_adresu}" readonly="readonly" /></td>
-          </tr>
-          <tr>
             <td>Kod_Pocztowy:</td>
             <td><input type="text" th:field="*{kod_pocztowy}" /></td>
           </tr>

@@ -26,9 +26,9 @@
 					<td th:text="${Samochodziki.iloscSamochodzikow}">Ilosc_Samochodzikow</td>
 					<td th:text="${Samochodziki.czasJazdy}">Czas_Jazdy</td>
 					<td th:text="${Samochodziki.rozmiarToru}">Rozmiar_Toru</td>
-					<td><a th:href="@{/updateSamochodziki/+ ${samochodziki.id}}">Edytuj</a>
+					<td><a th:href="@{'/updateSamochodziki/'+ ${Samochodziki.numerAtrakcji}}">Edytuj</a>
 					&nbsp; &nbsp; &nbsp; &nbsp;
-					<a th:href="@{/deleteSamochodziki/+ ${samochodziki.id}}">Usun</a></td>
+					<a th:href="@{'/deleteSamochodziki/'+ ${Samochodziki.numerAtrakcji}}">Usun</a></td>
 			</tbody>
 		</table>
 		<a href="/add_Samochodziki">Dodaj element do tabeli</a>

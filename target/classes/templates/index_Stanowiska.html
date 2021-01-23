@@ -24,9 +24,9 @@
 					<td th:text="${Stanowiska.nrStanowiska}">Nr_Stanowiska</td>
 					<td th:text="${Stanowiska.nazwa}">Nazway</td>
 					<td th:text="${Stanowiska.opis}">Opis</td>
-					<td><a th:href="@{/updateStanowiska/+ ${stanowiska.id}}">Edytuj</a>
+					<td><a th:href="@{'/updateStanowiska/'+ ${Stanowiska.nrStanowiska}}">Edytuj</a>
 					&nbsp; &nbsp; &nbsp; &nbsp;
-					<a th:href="@{/deleteStanowiska/+ ${stanowiska.id}}">Usun</a></td>
+					<a th:href="@{'/deleteStanowiska/'+ ${Stanowiska.nrStanowiska}}">Usun</a></td>
 			</tbody>
 		</table>
 		<a href="/add_Stanowiska">Dodaj element do tabeli</a>

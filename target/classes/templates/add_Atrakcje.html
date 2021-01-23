@@ -12,27 +12,27 @@
         <table border="1" cellpadding="10">
           <tr>
             <td>Nr_Atrakcji:</td>
-            <td><input type="text" th:field="*{numerAtrakcji}" /></td>
+            <td><input type="number" th:field="*{numerAtrakcji}" /></td>
           </tr>
           <tr>
             <td>Data_Konserwacji:</td>
-            <td><input type="text" th:field="*{dataKonserwacji}" /></td>
+            <td><input type="date" th:field="*{dataKonserwacji}" /></td>
           </tr>
           <tr>
             <td>Godzina_Otwarcia:</td>
-            <td><input type="text" th:field="*{godzinaOtwarcia}" /></td>
+            <td><input type="time" th:field="*{godzinaOtwarcia}" /></td>
           </tr>
           <tr>
             <td>Godzina_Zamkniecia:</td>
-            <td><input type="text" th:field="*{godzinaZamkniecia}" /></td>
+            <td><input type="time" th:field="*{godzinaZamkniecia}" /></td>
           </tr>
           <tr>
             <td>Nr_Cennika:</td>
-            <td><input type="text" th:field="*{nrCennika}" /></td>
+            <td><input type="number" th:field="*{nrCennika}" /></td>
           </tr>
           <tr>
             <td>Nr_Parku:</td>
-            <td><input type="text" th:field="*{numerParku}" /></td>
+            <td><input type="number" th:field="*{numerParku}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

@@ -11,16 +11,12 @@
       <from action="#" th:action="@{/updateRestauracje}" th:object="${restauracje}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Nr_Restauracji:</td>
-            <td><input type="text" th:field="*{numerRestauracji}"  readonly="readonly"/></td>
-          </tr>
-          <tr>
             <td>Nazwa_Restauracji:</td>
             <td><input type="text" th:field="*{nazwaRestauracji}" /></td>
           </tr>
           <tr>
             <td>Data_Kontroli:</td>
-            <td><input type="text" th:field="*{dataKontroli}" /></td>
+            <td><input type="date" th:field="*{dataKontroli}" /></td>
           </tr>
           <tr>
             <td>Dostepnosc_Alkoholu:</td>
@@ -28,11 +24,7 @@
           </tr>
           <tr>
             <td>Ilosc_Miejsc:</td>
-            <td><input type="text" th:field="*{iloscMiejsc}" /></td>
-          </tr>
-          <tr>
-            <td>Nr_Parku:</td>
-            <td><input type="text" th:field="*{numerParku}" /></td>
+            <td><input type="number" th:field="*{iloscMiejsc}" /></td>
           </tr>
           <tr>
             <td>Styl_Kuchni:</td>

@@ -23,14 +23,14 @@
             <td th:text="${Cenniki.nrCennika}">Nr_Cennika</td>
             <td th:text="${Cenniki.cenaPodstawowa}">Nr_Adresu</td>
             <td th:text="${Cenniki.cenaZeZnizka}">Cena_Ze_Znizka</td>
-            <td><a th:href="@{/updateCenniki/+ ${cenniki.id}}">Edytuj</a>
+            <td><a th:href="@{'/updateCenniki/'+ ${Cenniki.nrCennika}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteCenniki/+ ${cenniki.id}}">Usun</a></td>
+              <a th:href="@{'/deleteCenniki/'+ ${Cenniki.nrCennika}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
       <a href="/add_Cenniki">Dodaj element do tabeli</a>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
+      <a href="/">Powrot do rozpiski tabel</a>
     </div>
   </body>
 </html>

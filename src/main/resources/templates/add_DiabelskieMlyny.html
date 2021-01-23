@@ -8,7 +8,7 @@
     <div align="center">
       <h1>Dodaj Nowy Diabelski Mlyn</h1>
       <br />
-      <form action="#" th:action="@{/saveDiabelskieMlyny}" th:object="${diabelskie_mlyny}" method="POST">
+      <form action="#" th:action="@{/saveDiabelskieMlyny}" th:object="${diabelskiemlyny}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
             <td>Numer_Atrakcji:</td>
@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <td>Ilosc_Koszy:</td>
-            <td><input type="text" th:field="*{ilośćKoszy}" /></td>
+            <td><input type="number" th:field="*{iloscKoszy}" /></td>
           </tr>
           <tr>
             <td>Rodzaj_Kosza:</td>
@@ -24,7 +24,7 @@
           </tr>
           <tr>
             <td>Wysokosc:</td>
-            <td><input type="text" th:field="*{wysokosc}" /></td>
+            <td><input type="number" th:field="*{wysokosc}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

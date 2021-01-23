@@ -13,16 +13,12 @@
 			method="POST">
 		<table border="1" cellpadding="10">
 			<tr>
-				<td>Nr_Pracownika:</td>
-				<td><input type="text" th:field="*{numerPracownika}" readonly="readonly" /></td>
-			</tr>
-			<tr>
 				<td>Nr_Pozwolenia:</td>
 				<td><input type="text" th:field="*{numerPozwolenia}" /></td>
 			</tr>
 			<tr>
 				<td>Wyksztalcenie_Techniczne:</td>
-				<td><input type="text" th:field="*{wykształcenieTechniczne}" /></td>
+				<td><input type="checkbox" th:field="*{wykształcenieTechniczne}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><button type="submit">SAVE</button></td>

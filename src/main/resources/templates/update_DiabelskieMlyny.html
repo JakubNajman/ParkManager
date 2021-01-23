@@ -11,20 +11,16 @@
       <form action="#" th:action="@{/updateDiabelskieMlyny}" th:object="${diabelskie_mlyny}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Numer_Atrakcji:</td>
-            <td><input type="text" th:field="*{numerAtrakcji}" readonly="readonly" /></td>
-          </tr>
-          <tr>
             <td>Ilosc_Koszy:</td>
-            <td><input type="text" th:field="*{ilośćKoszy}" /></td>
+            <td><input type="number" th:field="*{ilośćKoszy}" /></td>
           </tr>
           <tr>
             <td>Rodzaj_Kosza:</td>
-            <td><input type="text" th:field="*{rodzajKosza}" /></td>
+            <td><input type="number" th:field="*{rodzajKosza}" /></td>
           </tr>
           <tr>
             <td>Wysokosc:</td>
-            <td><input type="text" th:field="*{wysokosc}" /></td>
+            <td><input type="number" th:field="*{wysokosc}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

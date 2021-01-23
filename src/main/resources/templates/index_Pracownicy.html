@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Pracownicy</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Pracownicy</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Pracownika</th>
+				<th>Imie</th>
+				<th>Nazwisko</th>
+				<th>Pesel</th>
+				<th>Plec</th>
+				<th>Data_Urodzenia</th>
+				<th>Email</th>
+				<th>Nr_Adresu</th>
+				<th>Nr_Kontaktowy</th>
+				<th>Nr_Stanowiska</th>
+				<th>Nr_Wynagrodzenia</th>
+				<th>Nr_Konta</th>
+				<th>Nr_Parku</th>
+				<th>Data_Zatrudnienia</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
+
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Pracownicy: ${listPracownicy}">
+					<td th:text="${Pracownicy.numerPracownika}">Nr_Pracownika</td>
+					<td th:text="${Pracownicy.imiePracownika}">Imie</td>
+					<td th:text="${Pracownicy.nazwiskoPracownika}">Nazwisko</td>
+					<td th:text="${Pracownicy.pesel}">Pesel</td>
+					<td th:text="${Pracownicy.plec}">Plec</td>
+					<td th:text="${Pracownicy.dataUrodzenia}">Data_Urodzenia</td>
+					<td th:text="${Pracownicy.email}">Email</td>
+					<td th:text="${Pracownicy.nrAdresu}">Nr_Adresu</td>
+					<td th:text="${Pracownicy.numerKontaktowy}">Nr_Kontaktowy</td>
+					<td th:text="${Pracownicy.nrStanowiska}">Nr_Stanowiska</td>
+					<td th:text="${Pracownicy.nrWynagrodzenia}">Nr_Wynagrodzenia</td>
+					<td th:text="${Pracownicy.numerKonta}">Nr_Konta</td>
+					<td th:text="${Pracownicy.numerParku}">Nr_Parku</td>
+					<td th:text="${Pracownicy.dataZatrudnienia}">Data_Zatrudnienia</td>
+					<td><a th:href="@{'/updatePracownicy/'+ ${Pracownicy.numerPracownika}}">Edytuj</a>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					<a th:href="@{'/deletePracownicy/'+ ${Pracownicy.numerPracownika}}">Usun</a></td>
+			</tbody>
+		</table>
+		<a href="/add_Pracownicy">Dodaj element do tabeli</a>
+		<a href="/">Powrot do rozpiski tabel</a>
+	</div>
+</body>
+</html>
+

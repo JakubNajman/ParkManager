@@ -25,14 +25,14 @@
             <td th:text="${MalpieGaje.cenaGodzina}">Cena_Godzina</td>
             <td th:text="${MalpieGaje.iloscSekcji}">Ilosc_Sekcji</td>
             <td th:text="${MalpieGaje.powierzchniaMetry}">Powierzchnia_Metry</td>
-            <td><a th:href="@{/updateMalpieGaje/+ ${malpie_gaje.id}}">Edytuj</a>
+            <td><a th:href="@{'/updateMalpieGaje/'+ ${MalpieGaje.numerAtrakcji}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteMalpieGaje/+ ${malpie_gaje.id}}">Usun</a></td>
+              <a th:href="@{'/deleteMalpieGaje/'+ ${MalpieGaje.numerAtrakcji}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
       <a href="/add_MalpieGaje">Dodaj element do tabeli</a>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
+      <a href="/">Powrot do rozpiski tabel</a>
     </div>
   </body>
 </html>

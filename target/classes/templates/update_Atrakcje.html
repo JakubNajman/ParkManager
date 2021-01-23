@@ -11,10 +11,6 @@
       <form action="#" th:action="@{/updateAtrakcje}" th:object="${atrakcje}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Nr_Atrakcji:</td>
-            <td><input type="text" th:field="*{numerAtrakcji}" readonly="readonly"  /></td>
-          </tr>
-          <tr>
             <td>Data_Konserwacji:</td>
             <td><input type="text" th:field="*{dataKonserwacji}" /></td>
           </tr>
@@ -24,15 +20,7 @@
           </tr>
           <tr>
             <td>Godzina_Zamkniecia:</td>
-            <td><input type="text" th:field="*{godzinaZamknięcia}" /></td>
-          </tr>
-          <tr>
-            <td>Nr_Cennika:</td>
-            <td><input type="text" th:field="*{nrCennika}" /></td>
-          </tr>        
-          <tr>
-            <td>Nr_Parku:</td>
-            <td><input type="text" th:field="*{numerParku}" /></td>
+            <td><input type="text" th:field="*{godzinaZamkniecia}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

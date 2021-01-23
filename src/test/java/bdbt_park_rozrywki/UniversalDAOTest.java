@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import bdbt_park_rozrywki.adresy.Adresy;
+import bdbt_park_rozrywki.model.Pracownicy;
+import bdbt_park_rozrywki.model.Restauracje;
 
 class UniversalDAOTest {
 
@@ -24,16 +25,22 @@ class UniversalDAOTest {
 		uDAO = new UniversalDAO(new JdbcTemplate(dataSource));
 	}
 
-//	@Test
-//	void testUpdate() {
-//		uDAO.update("MIASTO", "Radom", "ULICA", "ddd");
-//	}
+	@Test
+	void testUpdate() {
+		uDAO.update("MIASTO", "Radom", "ULICA", "ddd");
+	}
 
 	@Test
 	void testList() {
-		List<Object> listAdresy = uDAO.list(new Adresy());
-		System.out.print(listAdresy);
+		List<Object> listPracownicy = uDAO.list(new Pracownicy());
+		System.out.print(listPracownicy);
 
+	}
+
+	@Test
+	void testGet() {
+		List<Object> listCennikiList = uDAO.list(new Restauracje());
+		System.out.println(listCennikiList);
 	}
 
 //	@Test
@@ -42,9 +49,9 @@ class UniversalDAOTest {
 //		uDAO.save(adresy1);
 //	}
 
-	@Test
-	void testDelete() {
-		uDAO.deleteByField(new Adresy(), "MIASTO", "namimaciek");
-	}
+//	@Test
+//	void testDelete() {
+//		uDAO.deleteByField(new Adresy(), "MIASTO", "namimaciek");
+//	}
 
 }

@@ -13,7 +13,7 @@ public class ParkiRozrywki {
 	private String nazwaParku;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: PARKI_ROZRYWKI.DATA_ZA�O�ENIA")
-	private Date dataZałożenia;
+	private Date dataZalozenia;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: PARKI_ROZRYWKI.LICZBA_PRACOWNIKOW")
 	private BigDecimal liczbaPracownikow;
@@ -42,13 +42,13 @@ public class ParkiRozrywki {
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: PARKI_ROZRYWKI.DATA_ZA�O�ENIA")
-	public Date getDataZałożenia() {
-		return dataZałożenia;
+	public Date getDataZalozenia() {
+		return dataZalozenia;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: PARKI_ROZRYWKI.DATA_ZA�O�ENIA")
-	public void setDataZZałożenia(Date dataZałożenia) {
-		this.dataZałożenia = dataZałożenia;
+	public void setDataZalozenia(Date dataZalozenia) {
+		this.dataZalozenia = dataZalozenia;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: PARKI_ROZRYWKI.LICZBA_PRACOWNIKOW")
@@ -70,16 +70,15 @@ public class ParkiRozrywki {
 	public void setNrAdresu(BigDecimal nrAdresu) {
 		this.nrAdresu = nrAdresu;
 	}
+
 	@Override
 	public String toString() {
 		String properties = "";
-		properties = new StringBuilder(properties)
-				.append("data_zalozenia,/'" + getDataZałożenia().toString() + "',/")
+		properties = new StringBuilder(properties).append("data_zalozenia,/'" + getDataZalozenia().toString() + "',/")
 				.append("liczba_pracownikow,/'" + getLiczbaPracownikow().toString() + "',/")
 				.append("nazwa_parku,/'" + getNazwaParku().toString() + "',/")
 				.append("nr_adresu,/'" + getNrAdresu().toString() + "',/")
-				.append("numer_parku,/'" + getNumerParku().toString() + "'")
-				.toString();
+				.append("numer_parku,/'" + getNumerParku().toString() + "'").toString();
 		return properties;
 	}
 

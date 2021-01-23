@@ -24,15 +24,15 @@
             <td th:text="${Kolejki.numerAtrakcji}">Numer_Atrakcji</td>
             <td th:text="${Kolejki.cenaPrzejazdu}">Cena_Przejazdu</td>
             <td th:text="${Kolejki.czyDzieci}">Czy_Dzieci</td>
-            <td th:text="${Kolejki.iloscWagoników}">Ilosc_Wagonikow</td>
-            <td><a th:href="@{/updateKolejki/+ ${kolejki.id}}">Edytuj</a>
+            <td th:text="${Kolejki.iloscWagonikow}">Ilosc_Wagonikow</td>
+            <td><a th:href="@{'/updateKolejki/'+ ${Kolejki.numerAtrakcji}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteKolejki/+ ${kolejki.id}}">Usun</a></td>
+              <a th:href="@{'/deleteKolejki/'+ ${Kolejki.numerAtrakcji}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
       <a href="/add_Kolejki">Dodaj element do tabeli</a>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
+      <a href="/">Powrot do rozpiski tabel</a>
     </div>
   </body>
 </html>

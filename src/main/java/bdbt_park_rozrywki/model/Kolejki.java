@@ -15,7 +15,7 @@ public class Kolejki {
 	private String czyDzieci;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: KOLEJKI.ILOSC_WAGONIKãW")
-	private BigDecimal iloscWagoników;
+	private BigDecimal iloscWagonikow;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: KOLEJKI.NUMER_ATRAKCJI")
 	public BigDecimal getNumerAtrakcji() {
@@ -48,23 +48,22 @@ public class Kolejki {
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: KOLEJKI.ILOSC_WAGONIKãW")
-	public BigDecimal getIloscWagoników() {
-		return iloscWagoników;
+	public BigDecimal getIloscWagonikow() {
+		return iloscWagonikow;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: KOLEJKI.ILOSC_WAGONIKãW")
-	public void setIloscWagoników(BigDecimal iloscWagoników) {
-		this.iloscWagoników = iloscWagoników;
+	public void setIloscWagonikow(BigDecimal iloscWagonikow) {
+		this.iloscWagonikow = iloscWagonikow;
 	}
+
 	@Override
 	public String toString() {
 		String properties = "";
-		properties = new StringBuilder(properties)
-				.append("cena_przejazdu,/'" + getCenaPrzejazdu().toString() + "',/")
+		properties = new StringBuilder(properties).append("cena_przejazdu,/'" + getCenaPrzejazdu().toString() + "',/")
 				.append("czy_dzieci,/'" + getCzyDzieci().toString() + "',/")
-				.append("ilosc_wagonikow,/'" + getIloscWagoników().toString() + "',/")
-				.append("numer_atrakcji,/'" + getNumerAtrakcji().toString() + "'")
-				.toString();
+				.append("ilosc_wagonikow,/'" + getIloscWagonikow().toString() + "',/")
+				.append("numer_atrakcji/'" + getNumerAtrakcji().toString() + "'").toString();
 		return properties;
 	}
 

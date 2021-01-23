@@ -31,14 +31,14 @@
             <td th:text="${Restauracje.iloscMiejsc}">Ilosc_Miejsc</td>
             <td th:text="${Restauracje.numerParku}">Nr_Parku</td>
             <td th:text="${Restauracje.stylKuchni}">Styl_Kuchni</td>
-            <td><a th:href="@{/updateRestauracje/+ ${restauracje.id}}">Edytuj</a>
+            <td><a th:href="@{'/updateRestauracje/'+ ${Restauracje.numerRestauracji}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteRestauracje/+ ${restauracje.id}}">Usun</a></td>
+              <a th:href="@{'/deleteRestauracje/'+ ${Restauracje.numerRestauracji}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
       <a href="/add_Restauracje">Dodaj element do tabeli</a>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
+      <a href="/">Powrot do rozpiski tabel</a>
     </div>
   </body>
 </html>

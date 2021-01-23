@@ -11,12 +11,8 @@
       <form action="#" th:action="@{/updateKucharze}" th:object="${kucharze}" method="POST">
         <table border="1" cellpadding="10">
           <tr>
-            <td>Nr_Pracownika:</td>
-            <td><input type="text" th:field="*{numerPracownika}" readonly="readonly" /></td>
-          </tr>
-          <tr>
             <td>Stopien_Kucharza:</td>
-            <td><input type="text" th:field="*{stopienKucharza}" /></td>
+            <td><input type="number" th:field="*{stopienKucharza}" /></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">SAVE</button></td>

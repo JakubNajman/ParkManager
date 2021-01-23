@@ -9,12 +9,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import bdbt_park_rozrywki.adresy.Adresy;
 import bdbt_park_rozrywki.model.Atrakcje;
+import bdbt_park_rozrywki.model.Cenniki;
+import bdbt_park_rozrywki.model.DiabelskieMlyny;
+import bdbt_park_rozrywki.model.Kolejki;
+import bdbt_park_rozrywki.model.MalpieGaje;
+import bdbt_park_rozrywki.model.Pracownicy;
+import bdbt_park_rozrywki.model.Restauracje;
+import bdbt_park_rozrywki.model.Samochodziki;
 
 @Controller
 public class AppController {
+
+	String temp;
 
 	@Autowired
 	private UniversalDAO dao;
@@ -24,6 +34,7 @@ public class AppController {
 		return "tabele";
 	}
 
+/////////ADRESY////////////
 	@RequestMapping("/index_Adresy")
 	public String viewAdresyPage(Model model) {
 		List<Object> listAdresy = dao.list(new Adresy());
@@ -52,6 +63,26 @@ public class AppController {
 		return "redirect:/index_Adresy";
 	}
 
+	@RequestMapping(value = "/updateAdresy/{nr_adresu}")
+	public ModelAndView showEditAdresyForm(@PathVariable(name = "nr_adresu") int id) {
+		ModelAndView mav = new ModelAndView("update_Adresy");
+		String nr_adresu = String.valueOf(id);
+		System.out.println(nr_adresu);
+		Adresy adresy = (Adresy) dao.getByField(new Adresy(), "nr_adresu", nr_adresu).get(0);
+		temp = nr_adresu;
+		mav.addObject("adresy", adresy);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateAdresy", method = RequestMethod.POST)
+	public String updateAdresy(@ModelAttribute("adresy") Adresy adresy) {
+		dao.update(adresy, "NR_ADRESU", temp, "KOD_POCZTOWY", adresy.getKod_pocztowy().toString(), "MIASTO",
+				adresy.getMiasto(), "NR_LOKALU", adresy.getNr_lokalu(), "ULICA", adresy.getUlica());
+		return "redirect:/index_Adresy";
+	}
+
+////////ATRAKCJE//////////
 	@RequestMapping("/index_Atrakcje")
 	public String viewAtrakcjePage(Model model) {
 		List<Object> listAtrakcje = dao.list(new Atrakcje());
@@ -78,6 +109,369 @@ public class AppController {
 		String numer_atrakcji = String.valueOf(id);
 		dao.deleteByField(atrakcje, "numer_atrakcji", numer_atrakcji);
 		return "redirect:/index_Atrakcje";
+	}
+
+	@RequestMapping(value = "/updateAtrakcje/{numer_atrakcji}")
+	public ModelAndView showEditAtrakcjeForm(@PathVariable(name = "numer_atrakcji") int id) {
+		ModelAndView mav = new ModelAndView("update_Atrakcje");
+		String numer_atrakcji = String.valueOf(id);
+		Atrakcje atrakcje = (Atrakcje) dao.getByField(new Atrakcje(), "numer_atrakcji", numer_atrakcji).get(0);
+		temp = numer_atrakcji;
+		mav.addObject("atrakcje", atrakcje);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateAtrakcje", method = RequestMethod.POST)
+	public String updateAtrakcje(@ModelAttribute("atrakcje") Atrakcje atrakcje) {
+		dao.update(atrakcje, "NUMER_ATRAKCJI", temp, "DATA_KONSERWACJI", atrakcje.getDataKonserwacji(),
+				"GODZINA_ZAMKNIECIA", atrakcje.getGodzinaZamkniecia(), "GODZINA_OTWARCIA",
+				atrakcje.getGodzinaOtwarcia());
+		return "redirect:/index_Atrakcje";
+	}
+
+////////CENNIKI///////////
+	@RequestMapping("/index_Cenniki")
+	public String viewCennikiPage(Model model) {
+		List<Object> listCenniki = dao.list(new Cenniki());
+		model.addAttribute("listCenniki", listCenniki);
+		return "index_Cenniki";
+	}
+
+	@RequestMapping("/add_Cenniki")
+	public String newCenniki(Model model) {
+		Cenniki cenniki = new Cenniki();
+		model.addAttribute("cenniki", cenniki);
+		return "add_Cenniki";
+	}
+
+	@RequestMapping(value = "/saveCenniki", method = RequestMethod.POST)
+	public String saveCenniki(@ModelAttribute("cenniki") Cenniki cenniki) {
+		dao.save(cenniki);
+		return "redirect:/index_Cenniki";
+	}
+
+	@RequestMapping(value = "/deleteCenniki/{nr_cennika}")
+	public String deleteCenniki(@PathVariable(name = "nr_cennika") int id) {
+		Cenniki cenniki = new Cenniki();
+		String nr_cennika = String.valueOf(id);
+		dao.deleteByField(cenniki, "nr_cennika", nr_cennika);
+		return "redirect:/index_Cenniki";
+	}
+
+	@RequestMapping(value = "/updateCenniki/{nr_cennika}")
+	public ModelAndView showEditCennikiForm(@PathVariable(name = "nr_cennika") int id) {
+		ModelAndView mav = new ModelAndView("update_Cenniki");
+		String nr_cennika = String.valueOf(id);
+		Cenniki cenniki = (Cenniki) dao.getByField(new Cenniki(), "nr_cennika", nr_cennika).get(0);
+		temp = nr_cennika;
+		mav.addObject("cenniki", cenniki);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateCenniki", method = RequestMethod.POST)
+	public String updateCenniki(@ModelAttribute("cenniki") Cenniki cenniki) {
+		dao.update(cenniki, "NR_CENNIKA", temp, "CENA_PODSTAWOWA", cenniki.getCenaPodstawowa().toString(),
+				"CENA_ZE_ZNIKA", cenniki.getCenaZeZnizka().toString());
+		return "redirect:/index_Cenniki";
+	}
+
+///////////DIABELSKIE MLYNY///////////
+	@RequestMapping("/index_DiabelskieMlyny")
+	public String viewDiabelskieMlynyPage(Model model) {
+		List<Object> listDiabelskieMlyny = dao.list(new DiabelskieMlyny());
+		model.addAttribute("listDiabelskieMlyny", listDiabelskieMlyny);
+		return "index_DiabelskieMlyny";
+	}
+
+	@RequestMapping("/add_DiabelskieMlyny")
+	public String newlistDiabelskieMlyny(Model model) {
+		DiabelskieMlyny diabelskieMlyny = new DiabelskieMlyny();
+		model.addAttribute("diabelskieMlyny", diabelskieMlyny);
+		return "add_DiabelskieMlyny";
+	}
+
+	@RequestMapping(value = "/saveDiabelskieMlyny", method = RequestMethod.POST)
+	public String saveDiabelskieMlyny(@ModelAttribute("diabelskieMlyny") DiabelskieMlyny diabelskieMlyny) {
+		dao.save(diabelskieMlyny);
+		return "redirect:/index_DiabelskieMlyny";
+	}
+
+	@RequestMapping(value = "/deleteDiabelskieMlyny/{numer_atrakcji}")
+	public String deleteDiabelskieMlyny(@PathVariable(name = "numer_atrakcji") int id) {
+		DiabelskieMlyny diabelskieMlyny = new DiabelskieMlyny();
+		String numer_atrakcji = String.valueOf(id);
+		dao.deleteByField(diabelskieMlyny, "numer_atrakcji", numer_atrakcji);
+		return "redirect:/index_DiabelskieMlyny";
+	}
+
+	@RequestMapping(value = "/updateDiabelskieMlyny/{numer_atrakcji}")
+	public ModelAndView showEditDiabelskieMlynyForm(@PathVariable(name = "numer_atrakcji") int id) {
+		ModelAndView mav = new ModelAndView("update_DiabelskieMlyny");
+		String numer_atrakcji = String.valueOf(id);
+		DiabelskieMlyny diabelskieMlyny = (DiabelskieMlyny) dao
+				.getByField(new DiabelskieMlyny(), "numer_atrakcji", numer_atrakcji).get(0);
+		temp = numer_atrakcji;
+		mav.addObject("diabelskieMlyny", diabelskieMlyny);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateDiabelskieMlyny", method = RequestMethod.POST)
+	public String updateCenniki(@ModelAttribute("diabelskieMlyny") DiabelskieMlyny diabelskieMlyny) {
+		dao.update(diabelskieMlyny, "NUMER_ATRAKCJI", temp, "ILOSC_KOSZY", diabelskieMlyny.getIloscKoszy().toString(),
+				"RODZAJ_KOSZA", diabelskieMlyny.getRodzajKosza(), "WYSOKOSC", diabelskieMlyny.getWysokosc().toString());
+		return "redirect:/index_DiabelskieMlyny";
+	}
+
+	/////////// Malpie gaje///////////
+	@RequestMapping("/index_MalpieGaje")
+	public String viewMalpieGajePage(Model model) {
+		List<Object> listMalpieGaje = dao.list(new MalpieGaje());
+		model.addAttribute("listMalpieGaje", listMalpieGaje);
+		return "index_MalpieGaje";
+	}
+
+	@RequestMapping("/add_MalpieGaje")
+	public String newlistMalpieGaje(Model model) {
+		MalpieGaje malpieGaje = new MalpieGaje();
+		model.addAttribute("malpieGaje", malpieGaje);
+		return "add_MalpieGaje";
+	}
+
+	@RequestMapping(value = "/saveMalpieGaje", method = RequestMethod.POST)
+	public String saveMalpieGaje(@ModelAttribute("malpieGaje") MalpieGaje malpieGaje) {
+		dao.save(malpieGaje);
+		return "redirect:/index_MalpieGaje";
+	}
+
+	@RequestMapping(value = "/deleteMalpieGaje/{numer_atrakcji}")
+	public String deleteMalpieGaje(@PathVariable(name = "numer_atrakcji") int id) {
+		MalpieGaje malpieGaje = new MalpieGaje();
+		String numer_atrakcji = String.valueOf(id);
+		dao.deleteByField(malpieGaje, "numer_atrakcji", numer_atrakcji);
+		return "redirect:/index_MalpieGaje";
+	}
+
+	@RequestMapping(value = "/updateMalpieGaje/{numer_atrakcji}")
+	public ModelAndView showEditMalpieGajeForm(@PathVariable(name = "numer_atrakcji") int id) {
+		ModelAndView mav = new ModelAndView("update_Kolejki");
+		String numer_atrakcji = String.valueOf(id);
+		MalpieGaje malpieGaje = (MalpieGaje) dao.getByField(new MalpieGaje(), "numer_atrakcji", numer_atrakcji).get(0);
+		temp = numer_atrakcji;
+		mav.addObject("malpieGaje", malpieGaje);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateMalpieGaje", method = RequestMethod.POST)
+	public String updateMalpieGaje(@ModelAttribute("malpieGaje") MalpieGaje malpieGaje) {
+		dao.update(malpieGaje, "NUMER_ATRAKCJI", temp, "CENA_GODZINA", malpieGaje.getCenaGodzina().toString(),
+				"ILOSC_SEKCJI", malpieGaje.getIloscSekcji().toString(), "POWIERZCHNIA_METRY",
+				malpieGaje.getPowierzchniaMetry().toString());
+		return "redirect:/index_malpieGaje";
+	}
+
+	/////////// KOLEJKI//////////
+
+	@RequestMapping("/index_Kolejki")
+	public String viewKolejkiPage(Model model) {
+		List<Object> listKolejki = dao.list(new Kolejki());
+		model.addAttribute("listKolejki", listKolejki);
+		return "index_Kolejki";
+	}
+
+	@RequestMapping("/add_Kolejki")
+	public String newlistKolejki(Model model) {
+		Kolejki kolejki = new Kolejki();
+		model.addAttribute("kolejki", kolejki);
+		return "add_Kolejki";
+	}
+
+	@RequestMapping(value = "/saveKolejki", method = RequestMethod.POST)
+	public String saveKolejki(@ModelAttribute("kolejki") Kolejki kolejki) {
+		dao.save(kolejki);
+		return "redirect:/index_Kolejki";
+	}
+
+	@RequestMapping(value = "/deleteKolejki/{numer_atrakcji}")
+	public String deleteKolejki(@PathVariable(name = "numer_atrakcji") int id) {
+		Kolejki kolejki = new Kolejki();
+		String numer_atrakcji = String.valueOf(id);
+		dao.deleteByField(kolejki, "numer_atrakcji", numer_atrakcji);
+		return "redirect:/index_Kolejki";
+	}
+
+	@RequestMapping(value = "/updateKolejki/{numer_atrakcji}")
+	public ModelAndView showEditKolejkiForm(@PathVariable(name = "numer_atrakcji") int id) {
+		ModelAndView mav = new ModelAndView("update_Kolejki");
+		String numer_atrakcji = String.valueOf(id);
+		Kolejki kolejki = (Kolejki) dao.getByField(new Kolejki(), "numer_atrakcji", numer_atrakcji).get(0);
+		temp = numer_atrakcji;
+		mav.addObject("kolejki", kolejki);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateKolejki", method = RequestMethod.POST)
+	public String updateKolejki(@ModelAttribute("kolejki") Kolejki kolejki) {
+		dao.update(kolejki, "NUMER_ATRAKCJI", temp, "CENA_PRZEJAZDU", kolejki.getCenaPrzejazdu().toString(),
+				"CZY_DZIECI", kolejki.getCzyDzieci(), "ILOSC_WAGONIKOW", kolejki.getIloscWagonikow().toString());
+		return "redirect:/index_Kolejki";
+	}
+
+	/////////// Samochodziki//////////
+
+	@RequestMapping("/index_Samochodziki")
+	public String viewSamochodzikiPage(Model model) {
+		List<Object> listSamochodziki = dao.list(new Samochodziki());
+		model.addAttribute("listSamochodziki", listSamochodziki);
+		return "index_Samochodziki";
+	}
+
+	@RequestMapping("/add_Samochodziki")
+	public String newlistSamochodziki(Model model) {
+		Samochodziki samochodziki = new Samochodziki();
+		model.addAttribute("samochodziki", samochodziki);
+		return "add_Samochodziki";
+	}
+
+	@RequestMapping(value = "/saveSamochodziki", method = RequestMethod.POST)
+	public String saveSamochodziki(@ModelAttribute("samochodziki") Samochodziki samochodziki) {
+		dao.save(samochodziki);
+		return "redirect:/index_Samochodziki";
+	}
+
+	@RequestMapping(value = "/deleteSamochodziki/{numer_atrakcji}")
+	public String deleteSamochodziki(@PathVariable(name = "numer_atrakcji") int id) {
+		Samochodziki samochodziki = new Samochodziki();
+		String numer_atrakcji = String.valueOf(id);
+		dao.deleteByField(samochodziki, "numer_atrakcji", numer_atrakcji);
+		return "redirect:/index_Samochodziki";
+	}
+
+	@RequestMapping(value = "/updateSamochodziki/{numer_atrakcji}")
+	public ModelAndView showEditSamochodzikiForm(@PathVariable(name = "numer_atrakcji") int id) {
+		ModelAndView mav = new ModelAndView("update_Samochodziki");
+		String numer_atrakcji = String.valueOf(id);
+		Samochodziki samochodziki = (Samochodziki) dao.getByField(new Samochodziki(), "numer_atrakcji", numer_atrakcji)
+				.get(0);
+		temp = numer_atrakcji;
+		mav.addObject("samochodziki", samochodziki);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateSamochodziki", method = RequestMethod.POST)
+	public String updateSamochodziki(@ModelAttribute("kolejki") Samochodziki samochodziki) {
+		dao.update(samochodziki, "NUMER_ATRAKCJI", temp, "CZAS_JAZDY", samochodziki.getCzasJazdy().toString(),
+				"ILOSC_SAMOCHODZIKOW", samochodziki.getIloscSamochodzikow().toString(), "ROZMIAR_TORU",
+				samochodziki.getRozmiarToru().toString());
+		return "redirect:/index_Samochodziki";
+	}
+
+	/////////// Pracownicy//////////
+
+	@RequestMapping("/index_Pracownicy")
+	public String viewPracownicyPage(Model model) {
+		List<Object> listPracownicy = dao.list(new Pracownicy());
+		model.addAttribute("listPracownicy", listPracownicy);
+		return "index_Pracownicy";
+	}
+
+	@RequestMapping("/add_Pracownicy")
+	public String newlistPracownicy(Model model) {
+		Pracownicy pracownicy = new Pracownicy();
+		model.addAttribute("pracownicy", pracownicy);
+		return "add_Pracownicy";
+	}
+
+	@RequestMapping(value = "/savePracownicy", method = RequestMethod.POST)
+	public String savePracownicy(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
+		dao.save(pracownicy);
+		return "redirect:/index_Pracownicy";
+	}
+
+	@RequestMapping(value = "/deletePracownicy/{numer_pracownika}")
+	public String deletePracownicy(@PathVariable(name = "numer_pracownika") int id) {
+		Pracownicy pracownicy = new Pracownicy();
+		String numer_pracownika = String.valueOf(id);
+		dao.deleteByField(pracownicy, "numer_pracownika", numer_pracownika);
+		return "redirect:/index_Pracownicy";
+	}
+
+	@RequestMapping(value = "/updatePracownicy/{numer_pracownika}")
+	public ModelAndView showEditPracownicyForm(@PathVariable(name = "numer_pracownika") int id) {
+		ModelAndView mav = new ModelAndView("update_Pracownika");
+		String numer_pracownika = String.valueOf(id);
+		Pracownicy pracownicy = (Pracownicy) dao.getByField(new Pracownicy(), "numer_pracownika", numer_pracownika)
+				.get(0);
+		temp = numer_pracownika;
+		mav.addObject("pracownicy", pracownicy);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updatePracownicy", method = RequestMethod.POST)
+	public String updatePracownicy(@ModelAttribute("kolejki") Pracownicy pracownicy) {
+		dao.deleteByField(pracownicy, "NUMER_PRACOWNIKA", temp);
+		dao.save(pracownicy);
+		// dao.update(pracownicy, "NUMER_PRACOWNIKA", temp,
+		// pracownicy.getDataUrodzenia(), pracownicy.get);
+		return "redirect:/index_Samochodziki";
+	}
+
+	/////////// RESTAURACJE//////////
+
+	@RequestMapping("/index_Restauracje")
+	public String viewRestauracjePage(Model model) {
+		List<Object> listRestauracje = dao.list(new Restauracje());
+		model.addAttribute("listRestauracje", listRestauracje);
+		return "index_Restauracje";
+	}
+
+	@RequestMapping("/add_Restauracje")
+	public String newlistRestauracje(Model model) {
+		Restauracje restauracje = new Restauracje();
+		model.addAttribute("restauracje", restauracje);
+		return "add_Restauracje";
+	}
+
+	@RequestMapping(value = "/saveRestauracje", method = RequestMethod.POST)
+	public String saveRestauracje(@ModelAttribute("restauracje") Restauracje restauracje) {
+		dao.save(restauracje);
+		return "redirect:/index_Restauracje";
+	}
+
+	@RequestMapping(value = "/deleteRestauracje/{numer_restauracji}")
+	public String deleteRestauracje(@PathVariable(name = "numer_restauracji") int id) {
+		Restauracje restauracje = new Restauracje();
+		String numer_restauracji = String.valueOf(id);
+		dao.deleteByField(restauracje, "numer_restauracji", numer_restauracji);
+		return "redirect:/index_Restauracje";
+	}
+
+	@RequestMapping(value = "/updateRestauracje/{numer_restauracji}")
+	public ModelAndView showEditRestauracjeForm(@PathVariable(name = "numer_restauracji") int id) {
+		ModelAndView mav = new ModelAndView("update_Restauracje");
+		String numer_restauracji = String.valueOf(id);
+		Restauracje restauracje = (Restauracje) dao
+				.getByField(new Restauracje(), "numer_restauracji", numer_restauracji).get(0);
+		temp = numer_restauracji;
+		mav.addObject("restauracje", restauracje);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateRestauracje", method = RequestMethod.POST)
+	public String updateRestauracje(@ModelAttribute("restauracje") Restauracje restauracje) {
+		dao.update(restauracje, "NUMER_RESTAURACJI", temp, "DATA_KONTROLI", restauracje.getDataKontroli(),
+				"DOSTEPNOSC_ALKOHOLU", restauracje.getDostepnoscAlkoholu(), "ILOSC_MIEJSC",
+				restauracje.getIloscMiejsc().toString(), "NAZWA_RESTAURACJI", restauracje.getNazwaRestauracji(),
+				"STYLE_KUCHNI", restauracje.getStylKuchni());
+		;
+		return "redirect:/index_Samochodziki";
 	}
 
 }

@@ -26,9 +26,9 @@
 					<td th:text="${Wynagrodzenia.kwotaDodatkowa}">Kwota_Dodatkowa</td>
 					<td th:text="${Wynagrodzenia.kwotaPodstawowa}">Kwota_Podstawowa</td>
 					<td th:text="${Wynagrodzenia.dataPrzelewu}">Data_Przelewu</td>
-					<td><a th:href="@{/updateWynagrodzenia/+ ${wynagrodzenia.id}}">Edytuj</a>
+					<td><a th:href="@{'/updateWynagrodzenia/'+ ${Wynagrodzenia.nrWynagrodzenia}}">Edytuj</a>
 					&nbsp; &nbsp; &nbsp; &nbsp;
-					<a th:href="@{/deleteWynagrodzenia/+ ${wynagrodzenia.id}}">Usun</a></td>
+					<a th:href="@{'/deleteWynagrodzenia/'+ ${Wynagrodzenia.nrWynagrodzenia}}">Usun</a></td>
 			</tbody>
 		</table>
 		<a href="/add_Wynagrodzenia">Dodaj element do tabeli</a>

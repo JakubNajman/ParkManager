@@ -23,14 +23,14 @@
             <td th:text="${Obsluga.numerPracownika}">Nr_Pracownika</td>
             <td th:text="${Obsluga.sekcjaObslugi}">Sekcja_Obslugi</td>
             <td th:text="${Obsluga.specjalnyDostęp}">Specjalny_Dostep</td>
-            <td><a th:href="@{/updateObsluga/+ ${obsluga.id}}">Edytuj</a>
+            <td><a th:href="@{'/updateObsluga/'+ ${Obsluga.numerPracownika}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{/deleteObsluga/+ ${obsluga.id}}">Usun</a></td>
+              <a th:href="@{'/deleteObsluga/'+ ${Obsluga.numerPracownika}}">Usun</a></td>
           </tr>
         </tbody>
       </table>
       <a href="/add_Obsluga">Dodaj element do tabeli</a>
-      <a href="/tabele">Powrot do rozpiski tabel</a>
+      <a href="/">Powrot do rozpiski tabel</a>
     </div>
   </body>
 </html>

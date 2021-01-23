@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Nowy_Pracownik</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Dodaj Nowego Pracownika</h1>
+		<br />
+		<form action="#" th:action="@{/savePracownicy}" th:object="${pracownicy}"
+			method="POST">
+		<table border="1" cellpadding="10">
+			<tr>
+				<td>Nr_Pracownika:</td>
+				<td><input type="text" th:field="*{numerPracownika}" /></td>
+			</tr>
+			<tr>
+				<td>Imie:</td>
+				<td><input type="text" th:field="*{imiePracownika}" /></td>
+			</tr>
+			<tr>
+				<td>Nazwisko:</td>
+				<td><input type="text" th:field="*{nazwiskoPracownika}" /></td>
+			</tr>
+			<tr>
+				<td>Pesel:</td>
+				<td><input type="text" th:field="*{pesel}" /></td>
+			</tr>
+			<tr>
+				<td>Plec:</td>
+				<td><input type="text" th:field="*{plec}" /></td>
+			</tr>
+			<tr>
+				<td>Data_Urodzenia:</td>
+				<td><input type="text" th:field="*{dataUrodzenia}" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Adresu:</td>
+				<td><input type="text" th:field="*{nrAdresu}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Kontaktowy:</td>
+				<td><input type="text" th:field="*{numerKontaktowy}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Stanowiska:</td>
+				<td><input type="text" th:field="*{nrStanowiska}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Wynagrodzenia:</td>
+				<td><input type="text" th:field="*{nrWynagrodzenia}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Konta:</td>
+				<td><input type="text" th:field="*{numerKonta}" /></td>
+			</tr>
+			<tr>
+				<td>Nr_Parku:</td>
+				<td><input type="text" th:field="*{numerParku}" /></td>
+			</tr>
+			<tr>
+				<td>Data_Zatrudnienia:</td>
+				<td><input type="text" th:field="*{dataZatrudnienia}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">SAVE</button></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -24,9 +24,9 @@
 					<td th:text="${Technicy.numerPracownika}">Nr_Pracownika</td>
 					<td th:text="${Technicy.numerPozwolenia}">Nr_Pozwolenia</td>
 					<td th:text="${Technicy.wykształcenieTechniczne}">Wyksztalcenie_Techniczne</td>
-					<td><a th:href="@{/updateTechnicy/+ ${technicy.id}}">Edytuj</a>
+					<td><a th:href="@{'/updateTechnicy/'+ ${Technicy.numerPracownika}}">Edytuj</a>
 					&nbsp; &nbsp; &nbsp; &nbsp;
-					<a th:href="@{/deleteTechnicy/+ ${technicy.id}}">Usun</a></td>
+					<a th:href="@{'/deleteTechnicy/'+ ${Technicy.numerPracownika}}">Usun</a></td>
 			</tbody>
 		</table>
 		<a href="/add_Technicy">Dodaj element do tabeli</a>
