@@ -22,7 +22,7 @@
           <tr th:each="Obsluga: ${listObsluga}">
             <td th:text="${Obsluga.numerPracownika}">Nr_Pracownika</td>
             <td th:text="${Obsluga.sekcjaObslugi}">Sekcja_Obslugi</td>
-            <td th:text="${Obsluga.specjalnyDostęp}">Specjalny_Dostep</td>
+            <td th:text="${Obsluga.specjalnyDostep}">Specjalny_Dostep</td>
             <td><a th:href="@{'/updateObsluga/'+ ${Obsluga.numerPracownika}}">Edytuj</a>
               &nbsp; &nbsp; &nbsp; &nbsp;
               <a th:href="@{'/deleteObsluga/'+ ${Obsluga.numerPracownika}}">Usun</a></td>

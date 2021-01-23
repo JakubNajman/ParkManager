@@ -12,7 +12,7 @@ public class Technicy {
 	private String numerPozwolenia;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTA�CENIE_TECHNICZNE")
-	private String wykształcenieTechniczne;
+	private String wyksztalcenieTechniczne;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.NUMER_PRACOWNIKA")
 	public BigDecimal getNumerPracownika() {
@@ -35,26 +35,26 @@ public class Technicy {
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTA�CENIE_TECHNICZNE")
-	public String getWykształcenieTechniczne() {
-		return wykształcenieTechniczne;
+	public String getWyksztalcenieTechniczne() {
+		return wyksztalcenieTechniczne;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2021-01-15T16:12:35.8329926+01:00", comments = "Source field: TECHNICY.WYKSZTA�CENIE_TECHNICZNE")
-	public void setWykształcenieTechniczne(String wykształcenieTechniczne) {
-		this.wykształcenieTechniczne = wykształcenieTechniczne;
+	public void setWykształcenieTechniczne(String wyksztalcenieTechniczne) {
+		this.wyksztalcenieTechniczne = wyksztalcenieTechniczne;
 	}
-	
+
 	@Override
 	public String toString() {
 		String properties = "";
 		properties = new StringBuilder(properties)
-				.append("numerPozwolenia,/'" + getNumerPozwolenia().toString() + "',/")
-				.append("numerPracownika,/'" + getNumerPracownika().toString() + "',/")
-				.append("wykształcenieTechniczne/'" + getWykształcenieTechniczne().toString() + "'").toString();				
-		
+				.append("numer_Pozwolenia,/'" + getNumerPozwolenia().toString() + "',/")
+				.append("numer_Pracownika,/'" + getNumerPracownika().toString() + "',/")
+				.append("wyksztalcenie_Techniczne/'" + "Tak" + "'").toString();
+
 		return properties;
 	}
-	
+
 	public String toQuery() {
 		return "TECHNICY";
 	}

@@ -12,7 +12,7 @@ public class Obsluga {
 	private String sekcjaObslugi;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: OBSLUGA.SPECJALNY_DOST�P")
-	private BigDecimal specjalnyDostep;
+	private Integer specjalnyDostep;
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: OBSLUGA.NUMER_PRACOWNIKA")
 	public BigDecimal getNumerPracownika() {
@@ -35,12 +35,12 @@ public class Obsluga {
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: OBSLUGA.SPECJALNY_DOST�P")
-	public BigDecimal getSpecjalnyDostep() {
+	public Integer getSpecjalnyDostep() {
 		return specjalnyDostep;
 	}
 
 	@Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-12-29T12:30:56.3704903+01:00", comments = "Source field: OBSLUGA.SPECJALNY_DOST�P")
-	public void setSpecjalnyDostęp(BigDecimal specjalnyDostep) {
+	public void setSpecjalnyDostęp(Integer specjalnyDostep) {
 		this.specjalnyDostep = specjalnyDostep;
 	}
 
@@ -50,7 +50,7 @@ public class Obsluga {
 		properties = new StringBuilder(properties)
 				.append("numer_pracownika,/'" + getNumerPracownika().toString() + "',/")
 				.append("sekcja_obslugi,/'" + getSekcjaObslugi().toString() + "',/")
-				.append("specjalny_dostep,/'" + getSpecjalnyDostep().toString() + "'").toString();
+				.append("specjalny_dostep/'" + "1" + "'").toString();
 		return properties;
 	}
 

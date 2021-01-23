@@ -16,10 +16,14 @@ import bdbt_park_rozrywki.model.Atrakcje;
 import bdbt_park_rozrywki.model.Cenniki;
 import bdbt_park_rozrywki.model.DiabelskieMlyny;
 import bdbt_park_rozrywki.model.Kolejki;
+import bdbt_park_rozrywki.model.Kucharze;
 import bdbt_park_rozrywki.model.MalpieGaje;
+import bdbt_park_rozrywki.model.Obsluga;
 import bdbt_park_rozrywki.model.Pracownicy;
 import bdbt_park_rozrywki.model.Restauracje;
 import bdbt_park_rozrywki.model.Samochodziki;
+import bdbt_park_rozrywki.model.Stanowiska;
+import bdbt_park_rozrywki.model.Technicy;
 
 @Controller
 public class AppController {
@@ -472,6 +476,203 @@ public class AppController {
 				"STYLE_KUCHNI", restauracje.getStylKuchni());
 		;
 		return "redirect:/index_Samochodziki";
+	}
+
+	/////////// KUCHARZE//////////
+
+	@RequestMapping("/index_Kucharze")
+	public String viewKucharzePage(Model model) {
+		List<Object> listKucharze = dao.list(new Kucharze());
+		model.addAttribute("listKucharze", listKucharze);
+		return "index_Kucharze";
+	}
+
+	@RequestMapping("/add_Kucharze")
+	public String newlistKucharze(Model model) {
+		Kucharze kucharze = new Kucharze();
+		model.addAttribute("kucharze", kucharze);
+		return "add_Kucharze";
+	}
+
+	@RequestMapping(value = "/saveKucharze", method = RequestMethod.POST)
+	public String saveRestauracje(@ModelAttribute("kucharze") Kucharze kucharze) {
+		dao.save(kucharze);
+		return "redirect:/index_Kucharze";
+	}
+
+	@RequestMapping(value = "/deleteKucharze/{numer_pracownika}")
+	public String deleteKucharze(@PathVariable(name = "numer_pracownika") int id) {
+		Kucharze kucharze = new Kucharze();
+		String numer_pracownika = String.valueOf(id);
+		dao.deleteByField(kucharze, "numer_pracownika", numer_pracownika);
+		return "redirect:/index_Kucharze";
+	}
+
+	@RequestMapping(value = "/updateKucharze/{numer_pracownika}")
+	public ModelAndView showEditKucharzeForm(@PathVariable(name = "numer_pracownika") int id) {
+		ModelAndView mav = new ModelAndView("update_Kucharze");
+		String numer_pracownika = String.valueOf(id);
+		Kucharze kucharze = (Kucharze) dao.getByField(new Kucharze(), "numer_pracownika", numer_pracownika).get(0);
+		temp = numer_pracownika;
+		mav.addObject("kucharze", kucharze);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateKucharze", method = RequestMethod.POST)
+	public String updateKucharze(@ModelAttribute("kucharze") Kucharze kucharze) {
+		dao.update(kucharze, "NUMER_PRACOWNIKA", temp, "STOPIEN_KUCHARZA", kucharze.getStopienKucharza().toString());
+		;
+		return "redirect:/index_Kucharze";
+	}
+
+	/////////// OBSLUGA//////////
+
+	@RequestMapping("/index_Obsluga")
+	public String viewObslugaPage(Model model) {
+		List<Object> listObsluga = dao.list(new Obsluga());
+		model.addAttribute("listObsluga", listObsluga);
+		return "index_Obsluga";
+	}
+
+	@RequestMapping("/add_Obsluga")
+	public String newlistObsluga(Model model) {
+		Obsluga obsluga = new Obsluga();
+		model.addAttribute("obsluga", obsluga);
+		return "add_obsluga";
+	}
+
+	@RequestMapping(value = "/saveObsluga", method = RequestMethod.POST)
+	public String saveObsluga(@ModelAttribute("obsluga") Obsluga obsluga) {
+		dao.save(obsluga);
+		return "redirect:/index_Obsluga";
+	}
+
+	@RequestMapping(value = "/deleteObsluga/{numer_pracownika}")
+	public String deleteObsluga(@PathVariable(name = "numer_pracownika") int id) {
+		Obsluga obsluga = new Obsluga();
+		String numer_pracownika = String.valueOf(id);
+		dao.deleteByField(obsluga, "numer_pracownika", numer_pracownika);
+		return "redirect:/index_Obsluga";
+	}
+
+	@RequestMapping(value = "/updateObsluga/{numer_pracownika}")
+	public ModelAndView showEditObslugaForm(@PathVariable(name = "numer_pracownika") int id) {
+		ModelAndView mav = new ModelAndView("update_Kucharze");
+		String numer_pracownika = String.valueOf(id);
+		Obsluga obsluga = (Obsluga) dao.getByField(new Obsluga(), "numer_pracownika", numer_pracownika).get(0);
+		temp = numer_pracownika;
+		mav.addObject("obsluga", obsluga);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateObsluga", method = RequestMethod.POST)
+	public String updateObsluga(@ModelAttribute("obsluga") Obsluga obsluga) {
+		System.out.println(obsluga);
+		dao.update(obsluga, "NUMER_PRACOWNIKA", temp, "SEKCJA_OBSLUGI", obsluga.getSekcjaObslugi(), "SPECJALNY_DOSTEP",
+				obsluga.getSpecjalnyDostep().toString());
+		;
+		return "redirect:/index_Obsluga";
+	}
+
+	/////////// Technicy//////////
+
+	@RequestMapping("/index_Technicy")
+	public String viewTechnicyPage(Model model) {
+		List<Object> listTechnicy = dao.list(new Technicy());
+		model.addAttribute("listTechnicy", listTechnicy);
+		return "index_Technicy";
+	}
+
+	@RequestMapping("/add_Technicy")
+	public String newlistTechincy(Model model) {
+		Technicy technicy = new Technicy();
+		model.addAttribute("technicy", technicy);
+		return "add_Technicy";
+	}
+
+	@RequestMapping(value = "/saveTechnicy", method = RequestMethod.POST)
+	public String saveTechnicy(@ModelAttribute("technicy") Technicy technicy) {
+		dao.save(technicy);
+		return "redirect:/index_Technicy";
+	}
+
+	@RequestMapping(value = "/deleteTechnicy/{numer_pracownika}")
+	public String deleteTechnicy(@PathVariable(name = "numer_pracownika") int id) {
+		Technicy technicy = new Technicy();
+		String numer_pracownika = String.valueOf(id);
+		dao.deleteByField(technicy, "numer_pracownika", numer_pracownika);
+		return "redirect:/index_Technicy";
+	}
+
+	@RequestMapping(value = "/updateTechnicy/{numer_pracownika}")
+	public ModelAndView showEditTechnicyForm(@PathVariable(name = "numer_pracownika") int id) {
+		ModelAndView mav = new ModelAndView("update_Technicy");
+		String numer_pracownika = String.valueOf(id);
+		Technicy technicy = (Technicy) dao.getByField(new Technicy(), "numer_pracownika", numer_pracownika).get(0);
+		temp = numer_pracownika;
+		mav.addObject("technicy", technicy);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateTechnicy", method = RequestMethod.POST)
+	public String updateTechnicy(@ModelAttribute("technicy") Technicy technicy) {
+		System.out.println(technicy);
+		dao.update(technicy, "NUMER_PRACOWNIKA", temp, "NUMER_POZWOLENIA", technicy.getNumerPozwolenia(),
+				"WYKSZTALCENIE_TECHNICZNE", technicy.getWyksztalcenieTechniczne());
+		;
+		return "redirect:/index_Technicy";
+	}
+
+	/////////// Stanowiska//////////
+
+	@RequestMapping("/index_Stanowiska")
+	public String viewStanowiskaPage(Model model) {
+		List<Object> listStanowiska = dao.list(new Stanowiska());
+		model.addAttribute("listStanowiska", listStanowiska);
+		return "index_Stanowiska";
+	}
+
+	@RequestMapping("/add_Stanowiska")
+	public String newlistStanowiska(Model model) {
+		Stanowiska stanowiska = new Stanowiska();
+		model.addAttribute("stanowiska", stanowiska);
+		return "add_Stanowiska";
+	}
+
+	@RequestMapping(value = "/saveStanowiska", method = RequestMethod.POST)
+	public String saveStanowiska(@ModelAttribute("stanowiska") Stanowiska stanowiska) {
+		dao.save(stanowiska);
+		return "redirect:/index_Stanowiska";
+	}
+
+	@RequestMapping(value = "/deleteStanowiska/{nr_stanowiska}")
+	public String deleteTechniy(@PathVariable(name = "nr_stanowiska") int id) {
+		Stanowiska stanowiska = new Stanowiska();
+		String nr_stanowiska = String.valueOf(id);
+		dao.deleteByField(stanowiska, "nr_stanowiska", nr_stanowiska);
+		return "redirect:/index_Stanowiska";
+	}
+
+	@RequestMapping(value = "/updateStanowiska/{nr_stanowiska}")
+	public ModelAndView showEditStanowiskaForm(@PathVariable(name = "nr_stanowiska") int id) {
+		ModelAndView mav = new ModelAndView("update_Stanowiska");
+		String nr_stanowiska = String.valueOf(id);
+		Stanowiska stanowiska = (Stanowiska) dao.getByField(new Stanowiska(), "nr_stanowiska", nr_stanowiska).get(0);
+		temp = nr_stanowiska;
+		mav.addObject("stanowiska", stanowiska);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/updateStanowiska", method = RequestMethod.POST)
+	public String updateStanowiska(@ModelAttribute("stanowiska") Stanowiska stanowiska) {
+		System.out.println(stanowiska);
+		dao.update(stanowiska, "NR_STANOWISKA", temp, "NAZWA", stanowiska.getNazwa(), "OPIS", stanowiska.getOpis());
+		;
+		return "redirect:/index_Stanowiska";
 	}
 
 }
