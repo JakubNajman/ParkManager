@@ -186,4 +186,31 @@ public class Pracownicy {
     public void setNrWynagrodzenia(BigDecimal nrWynagrodzenia) {
         this.nrWynagrodzenia = nrWynagrodzenia;
     }
+    
+	@Override
+	public String toString() {
+		String properties = "";
+		properties = new StringBuilder(properties)
+				.append("data_urodzenia,/'" + getDataUrodzenia().toString() + "',/")
+				.append("data_zatrudnienia,/'" + getDataZatrudnienia().toString() + "',/")
+				.append("email,/'" + getEmail().toString() + "',/")
+				.append("imie_pracownika,/'" + getImiePracownika().toString() + "',/")
+				.append("nazwisko_pracownika,/'" + getNazwiskoPracownika().toString() + "',/")
+				.append("numer_adresu,/'" + getNrAdresu().toString() + "',/")
+				.append("numer_stanowiska,/'" + getNrStanowiska().toString() + "',/")
+				.append("numer_wynagrodzenia,/'" + getNrWynagrodzenia().toString() + "',/")
+				.append("numer_konta,/'" + getNumerKonta().toString() + "',/")
+				.append("numer_kontaktowy,/'" + getNumerKontaktowy().toString() + "',/")
+				.append("numer_parku,/'" + getNumerParku().toString() + "',/")
+				.append("numer_pracownika,/'" + getNumerPracownika().toString() + "',/")
+				.append("pesel,/'" + getPesel().toString() + "',/")
+				.append("plec,/'" + getPlec().toString() + "'").toString();
+
+		return properties;
+	}
+
+	public String toQuery() {
+		return "PRACOWNICY";
+	}
+    
 }
