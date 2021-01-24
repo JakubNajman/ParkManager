@@ -15,10 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import bdbt_park_rozrywki.adresy.Adresy;
 import bdbt_park_rozrywki.model.Atrakcje;
 import bdbt_park_rozrywki.model.Cenniki;
-import bdbt_park_rozrywki.model.DiabelskieMlyny;
 import bdbt_park_rozrywki.model.Kolejki;
 import bdbt_park_rozrywki.model.Kucharze;
-import bdbt_park_rozrywki.model.MalpieGaje;
 import bdbt_park_rozrywki.model.Obsluga;
 import bdbt_park_rozrywki.model.Pracownicy;
 import bdbt_park_rozrywki.model.Restauracje;
@@ -36,21 +34,19 @@ public class AppController {
 
 	@RequestMapping("/")
 	public String viewTablesPage(Model model) {
-		return ("login");
-	}
-	
-	@GetMapping("/admin")
-		public String admin() {
 		return ("tabele");
-		}
-	
-
-	@GetMapping("/user")
-		public String user(){
-		return ("tabele_user");
 	}
-	
-	
+
+//	@GetMapping("/admin")
+//	public String admin() {
+//		return "tabele";
+//	}
+//
+	@GetMapping("/userView")
+	public String userView() {
+		return "tabele_user";
+	}
+
 /////////ADRESY////////////
 	@RequestMapping("/index_Adresy")
 	public String viewAdresyPage(Model model) {
@@ -192,102 +188,6 @@ public class AppController {
 		dao.update(cenniki, "NR_CENNIKA", temp, "CENA_PODSTAWOWA", cenniki.getCenaPodstawowa().toString(),
 				"CENA_ZE_ZNIKA", cenniki.getCenaZeZnizka().toString());
 		return "redirect:/index_Cenniki";
-	}
-
-///////////DIABELSKIE MLYNY///////////
-	@RequestMapping("/index_DiabelskieMlyny")
-	public String viewDiabelskieMlynyPage(Model model) {
-		List<Object> listDiabelskieMlyny = dao.list(new DiabelskieMlyny());
-		model.addAttribute("listDiabelskieMlyny", listDiabelskieMlyny);
-		return "index_DiabelskieMlyny";
-	}
-
-	@RequestMapping("/add_DiabelskieMlyny")
-	public String newlistDiabelskieMlyny(Model model) {
-		DiabelskieMlyny diabelskieMlyny = new DiabelskieMlyny();
-		model.addAttribute("diabelskieMlyny", diabelskieMlyny);
-		return "add_DiabelskieMlyny";
-	}
-
-	@RequestMapping(value = "/saveDiabelskieMlyny", method = RequestMethod.POST)
-	public String saveDiabelskieMlyny(@ModelAttribute("diabelskieMlyny") DiabelskieMlyny diabelskieMlyny) {
-		dao.save(diabelskieMlyny);
-		return "redirect:/index_DiabelskieMlyny";
-	}
-
-	@RequestMapping(value = "/deleteDiabelskieMlyny/{numer_atrakcji}")
-	public String deleteDiabelskieMlyny(@PathVariable(name = "numer_atrakcji") int id) {
-		DiabelskieMlyny diabelskieMlyny = new DiabelskieMlyny();
-		String numer_atrakcji = String.valueOf(id);
-		dao.deleteByField(diabelskieMlyny, "numer_atrakcji", numer_atrakcji);
-		return "redirect:/index_DiabelskieMlyny";
-	}
-
-	@RequestMapping(value = "/updateDiabelskieMlyny/{numer_atrakcji}")
-	public ModelAndView showEditDiabelskieMlynyForm(@PathVariable(name = "numer_atrakcji") int id) {
-		ModelAndView mav = new ModelAndView("update_DiabelskieMlyny");
-		String numer_atrakcji = String.valueOf(id);
-		DiabelskieMlyny diabelskieMlyny = (DiabelskieMlyny) dao
-				.getByField(new DiabelskieMlyny(), "numer_atrakcji", numer_atrakcji).get(0);
-		temp = numer_atrakcji;
-		mav.addObject("diabelskieMlyny", diabelskieMlyny);
-
-		return mav;
-	}
-
-	@RequestMapping(value = "/updateDiabelskieMlyny", method = RequestMethod.POST)
-	public String updateCenniki(@ModelAttribute("diabelskieMlyny") DiabelskieMlyny diabelskieMlyny) {
-		dao.update(diabelskieMlyny, "NUMER_ATRAKCJI", temp, "ILOSC_KOSZY", diabelskieMlyny.getIloscKoszy().toString(),
-				"RODZAJ_KOSZA", diabelskieMlyny.getRodzajKosza(), "WYSOKOSC", diabelskieMlyny.getWysokosc().toString());
-		return "redirect:/index_DiabelskieMlyny";
-	}
-
-	/////////// Malpie gaje///////////
-	@RequestMapping("/index_MalpieGaje")
-	public String viewMalpieGajePage(Model model) {
-		List<Object> listMalpieGaje = dao.list(new MalpieGaje());
-		model.addAttribute("listMalpieGaje", listMalpieGaje);
-		return "index_MalpieGaje";
-	}
-
-	@RequestMapping("/add_MalpieGaje")
-	public String newlistMalpieGaje(Model model) {
-		MalpieGaje malpieGaje = new MalpieGaje();
-		model.addAttribute("malpieGaje", malpieGaje);
-		return "add_MalpieGaje";
-	}
-
-	@RequestMapping(value = "/saveMalpieGaje", method = RequestMethod.POST)
-	public String saveMalpieGaje(@ModelAttribute("malpieGaje") MalpieGaje malpieGaje) {
-		dao.save(malpieGaje);
-		return "redirect:/index_MalpieGaje";
-	}
-
-	@RequestMapping(value = "/deleteMalpieGaje/{numer_atrakcji}")
-	public String deleteMalpieGaje(@PathVariable(name = "numer_atrakcji") int id) {
-		MalpieGaje malpieGaje = new MalpieGaje();
-		String numer_atrakcji = String.valueOf(id);
-		dao.deleteByField(malpieGaje, "numer_atrakcji", numer_atrakcji);
-		return "redirect:/index_MalpieGaje";
-	}
-
-	@RequestMapping(value = "/updateMalpieGaje/{numer_atrakcji}")
-	public ModelAndView showEditMalpieGajeForm(@PathVariable(name = "numer_atrakcji") int id) {
-		ModelAndView mav = new ModelAndView("update_Kolejki");
-		String numer_atrakcji = String.valueOf(id);
-		MalpieGaje malpieGaje = (MalpieGaje) dao.getByField(new MalpieGaje(), "numer_atrakcji", numer_atrakcji).get(0);
-		temp = numer_atrakcji;
-		mav.addObject("malpieGaje", malpieGaje);
-
-		return mav;
-	}
-
-	@RequestMapping(value = "/updateMalpieGaje", method = RequestMethod.POST)
-	public String updateMalpieGaje(@ModelAttribute("malpieGaje") MalpieGaje malpieGaje) {
-		dao.update(malpieGaje, "NUMER_ATRAKCJI", temp, "CENA_GODZINA", malpieGaje.getCenaGodzina().toString(),
-				"ILOSC_SEKCJI", malpieGaje.getIloscSekcji().toString(), "POWIERZCHNIA_METRY",
-				malpieGaje.getPowierzchniaMetry().toString());
-		return "redirect:/index_malpieGaje";
 	}
 
 	/////////// KOLEJKI//////////

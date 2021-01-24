@@ -43,7 +43,7 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc10</artifactId>
 			<version>1.0</version>
-			<systemPath>C:/Users/Kacper/Desktop/XD/ojdbc10.jar</systemPath>
+			<systemPath>C:/Users/najma/.m2/repository/ojdbc/ojdbc10.jar</systemPath>
 			<scope>system</scope>
 		</dependency>
 		<!-- C:/Users/najma/.m2/repository/ojdbc/ojdbc10.jar -->

@@ -26,19 +26,17 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	// API
-
-	@Override
-	public void onAuthenticationSuccess( HttpServletRequest request, HttpServletResponse response,
-			 Authentication authentication) throws IOException {
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+			Authentication authentication) throws IOException {
 		handle(request, response, authentication);
 		clearAuthenticationAttributes(request);
 	}
 
 	// IMPL
-	
-	protected void handle( HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException {
-		 String targetUrl = determineTargetUrl(authentication);
+
+	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+			throws IOException {
+		String targetUrl = determineTargetUrl(authentication);
 
 		if (response.isCommitted()) {
 			logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
@@ -51,8 +49,8 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 	protected String determineTargetUrl(Authentication authentication) {
 
 		Map<String, String> roleTargetUrlMap = new HashMap<String, String>();
-		roleTargetUrlMap.put("ROLE_USER", "/tabele_user");
-		roleTargetUrlMap.put("ROLE_ADMIN", "/tabele");
+		roleTargetUrlMap.put("ROLE_USER", "/tabele_user.html");
+		roleTargetUrlMap.put("ROLE_ADMIN", "/tabele.html");
 
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (final GrantedAuthority grantedAuthority : authorities) {
