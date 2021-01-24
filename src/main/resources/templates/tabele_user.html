@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dostepne Tabele</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Dostepne Tabele</h1>
+      <br />
+      <from action="#" th:action="@{/save}" th:object="${sale}" method="post">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td><a href="/index_Atrakcje">Atrakcje</td>
+          </tr>
+          <tr>
+            <td><a href="/index_Kolejki">Kolejki</td>
+          </tr>
+          <tr>
+            <td><a href="/index_Restauracje">Restauracje</td>
+          </tr>
+          <tr>
+            <td><a href="/index_Samochodziki">Samochodziki</td>
+          </tr>
+         
+          </tr>
+        </table>
+      </from>
+    </div>
+  </body>
+</html>

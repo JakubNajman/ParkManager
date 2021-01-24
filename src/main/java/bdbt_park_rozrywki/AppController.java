@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,9 +36,21 @@ public class AppController {
 
 	@RequestMapping("/")
 	public String viewTablesPage(Model model) {
-		return "tabele";
+		return ("login");
 	}
+	
+	@GetMapping("/admin")
+		public String admin() {
+		return ("tabele");
+		}
+	
 
+	@GetMapping("/user")
+		public String user(){
+		return ("tabele_user");
+	}
+	
+	
 /////////ADRESY////////////
 	@RequestMapping("/index_Adresy")
 	public String viewAdresyPage(Model model) {
