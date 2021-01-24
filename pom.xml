@@ -43,10 +43,14 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc10</artifactId>
 			<version>1.0</version>
-			<systemPath>C:/Users/najma/.m2/repository/ojdbc/ojdbc10.jar</systemPath>
+			<systemPath>C:/Users/Kacper/Desktop/XD/ojdbc10.jar</systemPath>
 			<scope>system</scope>
 		</dependency>
-		
+		<!-- C:/Users/najma/.m2/repository/ojdbc/ojdbc10.jar -->
+			<dependency>             
+				<groupId>org.springframework.boot</groupId> 
+		        <artifactId>spring-boot-starter-security</artifactId>         
+		    </dependency>
 		<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
