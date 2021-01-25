@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>Pracownicy</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" th:href="@{styles.css}">
 </head>
 <body>
 <div id="clown"></div>
@@ -34,7 +34,7 @@
 			<!--Tablce body-->
 			<tbody>
 				<tr th:each="Pracownicy: ${listPracownicy}">
-					<td th:text="${Pracownicy.numerPracownika}">Nr_Pracownika</td>
+			<td th:text="${Pracownicy.numerPracownika}">Nr_Pracownika</td>
 					<td th:text="${Pracownicy.imiePracownika}">Imie</td>
 					<td th:text="${Pracownicy.nazwiskoPracownika}">Nazwisko</td>
 					<td th:text="${Pracownicy.pesel}">Pesel</td>

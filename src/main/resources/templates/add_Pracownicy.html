@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>Nowy_Pracownik</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" th:href="@{styles.css}">
 </head>
 <body>
 <div id="clown"></div>
@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" th:field="*{email}" /></td>
+				<td><input type="text" th:field="*{email}" value="@park.com" /></td>
 			</tr>
 			<tr>
 				<td>Nr_Adresu:</td>
@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td>Nr_Wynagrodzenia:</td>
-				<td><input type="text" th:field="*{nrWynagrodzenia}" /></td>
+				<td><input type="text" th:field="*{nrWynagrodzenia}" value="1"/></td>
 			</tr>
 			<tr>
 				<td>Nr_Konta:</td>
@@ -64,7 +64,7 @@
 			</tr>
 			<tr>
 				<td>Nr_Parku:</td>
-				<td><input type="text" th:field="*{numerParku}" /></td>
+				<td><input type="text" th:field="*{numerParku}" value="2"/></td>
 			</tr>
 			<tr>
 				<td>Data_Zatrudnienia:</td>
@@ -72,7 +72,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><button type="submit">SAVE</button>
-				 <a href="index_Pracownicy.html">Cofnij</a>
+				 <a href="index_Pracownicy">Cofnij</a>
 			</tr>
 		</table>
 		</form>
