@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Atrakcje</title>
-  </head>
-  <body>
-    <div align="center">
-      <h1>Atrakcje</h1>
-      <table border="1" cellpadding="10">
-        <thread>
-          <tr>
-            <th>Nr_Atrakcji</th>
-            <th>Data_Konserwacji</th>
-            <th>Godzina_Otwarcia</th>
-            <th>Godzina_Zamkniecia</th>
-            <th>Nr_Cennika</th>
-            <th>Nr_Parku</th>
-            <th>Actions</th>
-          </tr>
-        </thread>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Atrakcje</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="clown"></div>
+	<div align="center">
+		<h1>Atrakcje</h1>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>Nr_Atrakcji</th>
+				<th>Data_Konserwacji</th>
+				<th>Godzina_Otwarcia</th>
+				<th>Godzina_Zamkniecia</th>
+				<th>Nr_Cennika</th>
+				<th>Nr_Parku</th>
+				<th>Actions</th>
+			</tr>
+			</thread>
 
-        <!--Tablce body-->
-        <tbody>
-          <tr th:each="Atrakcje: ${listAtrakcje}">
-            <td th:text="${Atrakcje.numerAtrakcji}">Nr_Atrakcji</td>
-            <td th:text="${Atrakcje.dataKonserwacji}">Data_Konserwacji</td>
-            <td th:text="${Atrakcje.godzinaOtwarcia}">Godzina_Otwarcia</td>
-            <td th:text="${Atrakcje.godzinaZamkniecia}">Godzina_Zamkniecia</td>
-            <td th:text="${Atrakcje.nrCennika}">Nr_Cennika</td>
-            <td th:text="${Atrakcje.numerParku}">Nr_Parku</td>
-            <td><a th:href="@{'/updateAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Edytuj</a>
-              &nbsp; &nbsp; &nbsp; &nbsp;
-              <a th:href="@{'/deleteAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Usun</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <a href="/add_Atrakcje">Dodaj element do tabeli</a>
-      <a href="/">Powrot do rozpiski tabel</a>
-    </div>
-  </body>
+			<!--Tablce body-->
+			<tbody>
+				<tr th:each="Atrakcje: ${listAtrakcje}">
+					<td th:text="${Atrakcje.numerAtrakcji}">Nr_Atrakcji</td>
+					<td th:text="${Atrakcje.dataKonserwacji}">Data_Konserwacji</td>
+					<td th:text="${Atrakcje.godzinaOtwarcia}">Godzina_Otwarcia</td>
+					<td th:text="${Atrakcje.godzinaZamkniecia}">Godzina_Zamkniecia</td>
+					<td th:text="${Atrakcje.nrCennika}">Nr_Cennika</td>
+					<td th:text="${Atrakcje.numerParku}">Nr_Parku</td>
+					<td><a
+						th:href="@{'/updateAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Edytuj</a>
+						&nbsp; &nbsp; &nbsp; &nbsp; <a
+						th:href="@{'/deleteAtrakcje/'+ ${Atrakcje.numerAtrakcji}}">Usun</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/add_Atrakcje">Dodaj element do tabeli</a> <a href="/">Powrot
+			do rozpiski tabel</a>
+	</div>
+</body>
 </html>

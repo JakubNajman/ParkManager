@@ -1,0 +1,35 @@
+
+body {
+
+ background-image: url("xD.jpg");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+ background-size: 100%, 100%;
+
+}
+
+ #clown{
+display: flex;
+position: absolute;
+bottom: 0;
+right:0;
+margin: 0;
+padding: 0;
+height: 17rem;
+width: 20rem;
+background-image: url("h3.gif");
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+:nth-child(2) :nth-child(3){
+    background: white;
+    width:fit-content;
+}
+
+
+h1{
+    width: fit-content;
+    background-color: #ffffffcc;
+    padding: 0.5rem;
+}
