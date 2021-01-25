@@ -37,11 +37,6 @@ public class AppController {
 		return ("tabele");
 	}
 
-//	@GetMapping("/admin")
-//	public String admin() {
-//		return "tabele";
-//	}
-//
 	@GetMapping("/userView")
 	public String userView() {
 		return "tabele_user";
