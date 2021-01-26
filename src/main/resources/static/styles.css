@@ -5,10 +5,11 @@ body {
  background-color: #cccccc;
  background-repeat: no-repeat;
  background-size: 100%, 100%;
+ font-family:Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
-#clown{
+ #clown{
 display: flex;
 position: absolute;
 bottom: 0;
@@ -22,14 +23,17 @@ background-size: contain;
 background-repeat: no-repeat;
 }
 
-:nth-child(2) :nth-child(3){
-    background: white;
-    width:fit-content;
-}
-
 
 h1{
     width: fit-content;
-    background-color: #ffffffcc;
+    background-color:  rgba(114, 198, 204, 0.774);
     padding: 0.5rem;
+}
+
+a{
+    background-color: rgb(255, 251, 0);
+}
+
+table{
+    background-color: rgba(114, 198, 204, 0.774);
 }

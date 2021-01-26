@@ -315,7 +315,7 @@ public class AppController {
 
 	@RequestMapping(value = "/updatePracownicy/{numer_pracownika}")
 	public ModelAndView showEditPracownicyForm(@PathVariable(name = "numer_pracownika") int id) {
-		ModelAndView mav = new ModelAndView("update_Pracownika");
+		ModelAndView mav = new ModelAndView("update_Pracownicy");
 		String numer_pracownika = String.valueOf(id);
 		Pracownicy pracownicy = (Pracownicy) dao.getByField(new Pracownicy(), "numer_pracownika", numer_pracownika)
 				.get(0);

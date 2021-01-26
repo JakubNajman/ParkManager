@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" th:field="*{email}" value="@park.com" /></td>
+				<td><input type="text" th:field="*{email}" /></td>
 			</tr>
 			<tr>
 				<td>Nr_Adresu:</td>
@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td>Nr_Wynagrodzenia:</td>
-				<td><input type="text" th:field="*{nrWynagrodzenia}" value="1"/></td>
+				<td><input type="text" th:field="*{nrWynagrodzenia}" th:value="1"/></td>
 			</tr>
 			<tr>
 				<td>Nr_Konta:</td>
@@ -64,7 +64,7 @@
 			</tr>
 			<tr>
 				<td>Nr_Parku:</td>
-				<td><input type="text" th:field="*{numerParku}" value="2"/></td>
+				<td><input type="text" th:field="*{numerParku}" th:value="2"/></td>
 			</tr>
 			<tr>
 				<td>Data_Zatrudnienia:</td>

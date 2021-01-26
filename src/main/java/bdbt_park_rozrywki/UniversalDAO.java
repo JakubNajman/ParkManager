@@ -37,7 +37,7 @@ public class UniversalDAO {
 	public UniversalDAO(JdbcTemplate jdbcTemplate) {
 		super();
 		this.jdbcTemplate = jdbcTemplate;
-		// this.entity = entity;
+
 	}
 
 	/* Inicjalizator przechowywania danych. */
